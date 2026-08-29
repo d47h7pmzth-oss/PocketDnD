@@ -6,12 +6,12 @@
     <title>Pocket D&D — Two Apps. One Game.</title>
     
     <!-- Authentic App Typography Links -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@600;700&family=Lexend:wght@400;600&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@600;700&family=Lexend:wght@400;600&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* 🎨 Pocket D&D Core App Theme Variables - Centered around periwinkle palette */
+        /* 🎨 Pocket D&D Core App Theme Variables - Synced to the Periwinkle Brand Icon */
         :root {
             --bg-dark: #07080d;
             --bg-card: #121424;
@@ -37,10 +37,10 @@
             background-color: var(--bg-dark);
             color: var(--ink-bright);
             font-family: var(--font-body);
-            font-size: 16px;
-            line-height: 1.6;
+            font-size: 17px;
+            line-height: 1.7;
             overflow-x: hidden;
-            text-align: center; /* Centralize all content */
+            text-align: center; /* Ensures total horizontal centralization */
         }
 
         /* 📐 Global Layout Helpers */
@@ -64,7 +64,7 @@
         .logo {
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 26px;
+            font-size: 28px;
             letter-spacing: 1px;
             color: var(--ink-bright);
         }
@@ -72,46 +72,51 @@
             color: var(--logo-periwinkle);
         }
 
-        /* ⚔️ Hero Section */
+        /* ⚔️ Hero Header Component */
         header {
-            padding: 80px 0 40px 0;
+            padding: 90px 0 50px 0;
         }
         h1 {
             font-family: var(--font-display);
-            font-size: 52px;
+            font-size: 56px;
             font-weight: 700;
             letter-spacing: 1.5px;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: var(--ink-bright);
+            line-height: 1.2;
         }
         .hero-sub {
-            max-width: 760px;
-            margin: 0 auto 36px auto;
-            font-size: 20px;
-            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 21px;
+            line-height: 1.8;
             color: var(--ink-dim);
         }
 
-        /* 🧪 CTA Interactive Blocks */
+        /* 🧪 CTA Interactive Lead Capture Block */
         .cta-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 0 auto 80px auto;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            padding: 50px 40px;
+            border-radius: 24px;
+            max-width: 640px;
+            margin: 0 auto 90px auto;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.6);
         }
         .cta-box h3 {
             font-family: var(--font-display);
-            font-size: 22px;
-            margin-bottom: 12px;
+            font-size: 24px;
+            margin-bottom: 14px;
             color: var(--logo-periwinkle);
+            letter-spacing: 0.5px;
         }
         .cta-box p {
-            font-size: 15px;
+            font-size: 16px;
             color: var(--ink-dim);
-            margin-bottom: 24px;
+            margin-bottom: 32px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
         .form-group {
             display: flex;
@@ -119,24 +124,25 @@
             align-items: center;
             gap: 16px;
             width: 100%;
-            max-width: 440px;
+            max-width: 460px;
             margin: 0 auto;
         }
         input[type="email"] {
             width: 100%;
             background-color: var(--bg-dark);
             border: 1px solid var(--border-color);
-            padding: 16px 20px;
-            border-radius: 10px;
+            padding: 18px 24px;
+            border-radius: 12px;
             color: var(--ink-bright);
             font-family: var(--font-alt);
-            font-size: 15px;
+            font-size: 16px;
             outline: none;
             text-align: center;
-            transition: border-color 0.2s;
+            transition: border-color 0.2s, box-shadow 0.2s;
         }
         input[type="email"]:focus {
             border-color: var(--logo-periwinkle);
+            box-shadow: 0 0 10px rgba(139, 150, 252, 0.2);
         }
         .btn {
             width: 100%;
@@ -144,12 +150,12 @@
             color: #07080d;
             font-family: var(--font-display);
             font-weight: 700;
-            font-size: 14px;
+            font-size: 15px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            padding: 16px 32px;
+            padding: 18px 36px;
             border: none;
-            border-radius: 10px;
+            border-radius: 12px;
             cursor: pointer;
             transition: transform 0.1s, background-color 0.2s;
         }
@@ -160,24 +166,27 @@
             transform: scale(0.98);
         }
         .privacy-note {
-            margin-top: 18px;
-            font-size: 12px;
+            margin-top: 20px;
+            font-size: 13px;
             color: var(--ink-dim);
-            line-height: 1.5;
+            line-height: 1.6;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* 📱 Ecosystem App Cards Layout */
+        /* 📱 Individual Split App Showcases */
         .ecosystem-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-bottom: 48px;
+            gap: 36px;
+            margin-bottom: 60px;
         }
         .app-card {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 48px 36px;
-            border-radius: 20px;
+            padding: 56px 40px;
+            border-radius: 24px;
             transition: background-color 0.2s, transform 0.2s;
             display: flex;
             flex-direction: column;
@@ -185,321 +194,29 @@
         }
         .app-card:hover {
             background-color: var(--bg-card-hover);
-            transform: translateY(-2px);
+            transform: translateY(-3px);
         }
         .app-card h2 {
             font-family: var(--font-display);
-            font-size: 30px;
-            margin-bottom: 18px;
+            font-size: 32px;
+            margin-bottom: 20px;
             color: var(--logo-periwinkle);
+            letter-spacing: 0.5px;
         }
         .app-card p {
             color: var(--ink-dim);
-            margin-bottom: 32px;
-            font-size: 16px;
-            max-width: 400px;
+            margin-bottom: 36px;
+            font-size: 16.5px;
+            max-width: 420px;
         }
         .feature-list {
             list-style: none;
-            width: 100%;
-            max-width: 420px;
-        }
-        .feature-list li {
-            padding: 14px 0;
-            font-size: 15px;
-            border-bottom: 1px solid rgba(34, 38, 64, 0.4);
-            line-height: 1.6;
-        }
-        .feature-list li:last-child {
-            border-bottom: none;
-        }
-        .feature-list strong {
-            color: var(--ink-bright);
-            display: block;
-            margin-bottom: 4px;
-            font-family: var(--font-alt);
-            font-size: 14px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-        }
-
-        /* 🎒 QR Handout Mechanics Callout */
-        .qr-section {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 56px 36px;
-            margin-bottom: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .qr-text {
-            max-width: 760px;
-        }
-        .qr-text h2 {
-            font-family: var(--font-display);
-            font-size: 34px;
-            margin-bottom: 20px;
-            letter-spacing: 0.5px;
-        }
-        .qr-text p {
-            color: var(--ink-dim);
-            font-size: 16px;
-            margin-bottom: 24px;
-            line-height: 1.7;
-        }
-        .qr-step-mono {
-            font-family: var(--font-mono);
-            font-size: 13px;
-            background-color: var(--bg-dark);
-            padding: 14px 24px;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 12px;
-            border: 1px solid var(--border-color);
-            color: var(--logo-periwinkle);
-            letter-spacing: 1px;
-        }
-
-        /* 🎨 Accessibility Framework Section */
-        .specs-section {
-            padding-bottom: 100px;
-        }
-        .specs-section h2 {
-            font-family: var(--font-display);
-            font-size: 30px;
-            margin-bottom: 40px;
-            letter-spacing: 0.5px;
-        }
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-        .spec-item {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 32px 24px;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .spec-item h4 {
-            font-family: var(--font-alt);
-            font-size: 15px;
-            margin-bottom: 12px;
-            color: var(--logo-periwinkle);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        .spec-item p {
-            font-size: 14px;
-            color: var(--ink-dim);
-            line-height: 1.6;
-            max-width: 260px;
-        }
-
-        footer {
-            padding: 40px 0;
-            border-top: 1px solid var(--border-color);
-            font-size: 13px;
-            color: var(--ink-dim);
-            font-family: var(--font-alt);
-        }
-
-        /* 📱 Responsive Engineering Queries */
-        @media (max-width: 868px) {
-            h1 { font-size: 38px; }
-            .ecosystem-grid, .specs-grid { grid-template-columns: 1fr; gap: 24px; }
-            .app-card { padding: 36px 24px; }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- 🌟 Navigation Bar -->
-    <nav>
-        <div class="container nav-container">
-            <div class="logo">POCKET <span>D&D</span></div>
-            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--logo-periwinkle); letter-spacing: 1px;">v1.0.0-BETA</div>
-        </div>
-    </nav>
-
-            background-color: var(--bg-dark);
-            color: var(--ink-bright);
-            font-family: var(--font-body);
-            font-size: 16px;
-            line-height: 1.6;
-            overflow-x: hidden;
-            text-align: center; /* Centralize all default inheritance */
-        }
-
-        /* 📐 Global Layout Helpers */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* 🌟 Navigation */
-        nav {
-            padding: 32px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .nav-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-        .logo {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 26px;
-            letter-spacing: 1px;
-            color: var(--ink-bright);
-        }
-        .logo span {
-            color: var(--logo-periwinkle);
-        }
-
-        /* ⚔️ Hero Section */
-        header {
-            padding: 80px 0 40px 0;
-        }
-        h1 {
-            font-family: var(--font-display);
-            font-size: 52px;
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            color: var(--ink-bright);
-        }
-        .hero-sub {
-            max-width: 760px;
-            margin: 0 auto 36px auto;
-            font-size: 20px;
-            line-height: 1.7;
-            color: var(--ink-dim);
-        }
-
-        /* 🧪 CTA Interactive Blocks */
-        .cta-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 40px;
-            border-radius: 20px;
-            max-width: 600px;
-            margin: 0 auto 80px auto;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-        }
-        .cta-box h3 {
-            font-family: var(--font-display);
-            font-size: 22px;
-            margin-bottom: 12px;
-            color: var(--logo-periwinkle);
-        }
-        .cta-box p {
-            font-size: 15px;
-            color: var(--ink-dim);
-            margin-bottom: 24px;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 16px;
             width: 100%;
             max-width: 440px;
-            margin: 0 auto;
-        }
-        input[type="email"] {
-            width: 100%;
-            background-color: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            padding: 16px 20px;
-            border-radius: 10px;
-            color: var(--ink-bright);
-            font-family: var(--font-alt);
-            font-size: 15px;
-            outline: none;
-            text-align: center;
-            transition: border-color 0.2s;
-        }
-        input[type="email"]:focus {
-            border-color: var(--logo-periwinkle);
-        }
-        .btn {
-            width: 100%;
-            background-color: var(--logo-periwinkle);
-            color: #07080d;
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            padding: 16px 32px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: transform 0.1s, background-color 0.2s;
-        }
-        .btn:hover {
-            background-color: var(--logo-accent-light);
-        }
-        .btn:active {
-            transform: scale(0.98);
-        }
-        .privacy-note {
-            margin-top: 18px;
-            font-size: 12px;
-            color: var(--ink-dim);
-            line-height: 1.5;
-        }
-
-        /* 📱 Ecosystem App Cards Layout */
-        .ecosystem-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-            margin-bottom: 48px;
-        }
-        .app-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 48px 36px;
-            border-radius: 20px;
-            transition: background-color 0.2s, transform 0.2s;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .app-card:hover {
-            background-color: var(--bg-card-hover);
-            transform: translateY(-2px);
-        }
-        .app-card h2 {
-            font-family: var(--font-display);
-            font-size: 30px;
-            margin-bottom: 18px;
-            color: var(--logo-periwinkle);
-        }
-        .app-card p {
-            color: var(--ink-dim);
-            margin-bottom: 32px;
-            font-size: 16px;
-            max-width: 400px;
-        }
-        .feature-list {
-            list-style: none;
-            width: 100%;
-            max-width: 420px;
         }
         .feature-list li {
-            padding: 14px 0;
-            font-size: 15px;
+            padding: 16px 0;
+            font-size: 15.5px;
             border-bottom: 1px solid rgba(34, 38, 64, 0.4);
             line-height: 1.6;
         }
@@ -509,45 +226,46 @@
         .feature-list strong {
             color: var(--ink-bright);
             display: block;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             font-family: var(--font-alt);
             font-size: 14px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        /* 🎒 QR Handout Mechanics Callout */
+        /* 🎒 Twin-App Synchronisation Engine Feature Callout */
         .qr-section {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            border-radius: 20px;
-            padding: 56px 36px;
-            margin-bottom: 80px;
+            border-radius: 24px;
+            padding: 64px 40px;
+            margin-bottom: 90px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
         .qr-text {
-            max-width: 760px;
+            max-width: 800px;
         }
         .qr-text h2 {
             font-family: var(--font-display);
-            font-size: 34px;
-            margin-bottom: 20px;
+            font-size: 36px;
+            margin-bottom: 22px;
             letter-spacing: 0.5px;
+            color: var(--ink-bright);
         }
         .qr-text p {
             color: var(--ink-dim);
-            font-size: 16px;
-            margin-bottom: 24px;
-            line-height: 1.7;
+            font-size: 17.5px;
+            margin-bottom: 28px;
+            line-height: 1.8;
         }
         .qr-step-mono {
             font-family: var(--font-mono);
-            font-size: 13px;
+            font-size: 13.5px;
             background-color: var(--bg-dark);
-            padding: 14px 24px;
-            border-radius: 8px;
+            padding: 16px 28px;
+            border-radius: 10px;
             display: inline-block;
             margin-top: 12px;
             border: 1px solid var(--border-color);
@@ -555,26 +273,26 @@
             letter-spacing: 1px;
         }
 
-        /* 🎨 Accessibility Framework Section */
+        /* 🎨 Core Systems & Accessibility Infrastructure */
         .specs-section {
-            padding-bottom: 100px;
+            padding-bottom: 120px;
         }
         .specs-section h2 {
             font-family: var(--font-display);
-            font-size: 30px;
-            margin-bottom: 40px;
+            font-size: 32px;
+            margin-bottom: 48px;
             letter-spacing: 0.5px;
         }
         .specs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
+            gap: 28px;
         }
         .spec-item {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
-            padding: 32px 24px;
-            border-radius: 16px;
+            padding: 36px 28px;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -582,37 +300,41 @@
         .spec-item h4 {
             font-family: var(--font-alt);
             font-size: 15px;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             color: var(--logo-periwinkle);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .spec-item p {
-            font-size: 14px;
+            font-size: 14.5px;
             color: var(--ink-dim);
-            line-height: 1.6;
-            max-width: 260px;
+            line-height: 1.7;
+            max-width: 280px;
         }
 
         footer {
-            padding: 40px 0;
+            padding: 48px 0;
             border-top: 1px solid var(--border-color);
-            font-size: 13px;
+            font-size: 14px;
             color: var(--ink-dim);
             font-family: var(--font-alt);
+            letter-spacing: 0.3px;
         }
 
-        /* 📱 Responsive Engineering Queries */
-        @media (max-width: 868px) {
-            h1 { font-size: 38px; }
-            .ecosystem-grid, .specs-grid { grid-template-columns: 1fr; gap: 24px; }
-            .app-card { padding: 36px 24px; }
+        /* 📱 Responsive Screen Engineering Queries */
+        @media (max-width: 900px) {
+            h1 { font-size: 40px; }
+            .hero-sub { font-size: 18px; }
+            .ecosystem-grid, .specs-grid { grid-template-columns: 1fr; gap: 28px; }
+            .app-card { padding: 40px 24px; }
+            .qr-text h2 { font-size: 30px; }
+            .qr-text p { font-size: 16px; }
         }
     </style>
 </head>
 <body>
 
-    <!-- 🌟 Navigation Bar -->
+    <!-- 🌟 Unified Navigation Bar Header -->
     <nav>
         <div class="container nav-container">
             <div class="logo">POCKET <span>D&D</span></div>
@@ -620,3 +342,108 @@
         </div>
     </nav>
 
+    <!-- ⚔️ Master Container Framework -->
+    <div class="container">
+        
+        <!-- Hero Component Section -->
+        <header>
+            <h1>TWO APPS. ONE GAME.</h1>
+            <p class="hero-sub">The twin-app ecosystem built explicitly to maintain the face-to-face, roleplay-driven magic of physical tabletop sessions. No video game emulation—just pure tabletop organization.</p>
+        </header>
+
+        <!-- 🧪 Live TestFlight Registration Portal Form -->
+        <div class="cta-box">
+            <h3>Join the Closed Beta</h3>
+            <p>We've officially hit Apple TestFlight. Apply below to unlock immediate access to our closed beta test group and join our core balancing ecosystem.</p>
+            <form class="form-group" onsubmit="alert('System Active! Connect your MailerLite or data hook framework here.'); return false;">
+                <input type="email" placeholder="Enter your email address..." required>
+                <button type="submit" class="btn">Apply for Beta Access</button>
+            </form>
+            <p class="privacy-note">🔒 We value player data. Email processing is restricted strictly to active TestFlight builds and core system status updates. Zero third-party sharing.</p>
+        </div>
+
+        <!-- 📱 Specialised Individual App Modules (Pocket Player & Pocket DM side-by-side) -->
+        <main class="ecosystem-grid">
+            
+            <!-- Pocket Player Element Card -->
+            <section class="app-card">
+                <h2>📱 Pocket Player</h2>
+                <p>Your streamlined digital character ledger. Maintains absolute sheet autonomy and player control without the weight of clunky manual math tracking.</p>
+                <ul class="feature-list">
+                    <li>
+                        <strong>Full Structural Autonomy</strong>
+                        Manually manipulate your health, inventory parameters, and active modifiers exactly like a standard paper layout.
+                    </li>
+                    <li>
+                        <strong>Intelligent Payload Reading</strong>
+                        Equipment scans automatically calculate and apply structural armor values (AC) and custom weapon properties directly.
+                    </li>
+                    <li>
+                        <strong>Hybrid Rolling Choice</strong>
+                        Toggle seamlessly between an intuitive, integrated digital dice roller and traditional physical rolling methods.
+                    </li>
+                </ul>
+            </section>
+
+            <!-- Pocket DM Element Card -->
+            <section class="app-card">
+                <h2>⚔️ Pocket DM</h2>
+                <p>Your macro session engine. Keep table momentum crisp, look up monster stat blocks instantly, and trigger generative assets cleanly from behind the screen.</p>
+                <ul class="feature-list">
+                    <li>
+                        <strong>Integrated Initiative Loop</strong>
+                        Swipe-to-action handlers for automated damage application, turn management, and instant condition markers.
+                    </li>
+                    <li>
+                        <strong>CR Scaling Generator</strong>
+                        Instant rules-bound AI monsters, traps, and side quests configured safely within traditional 5e math boundaries.
+                    </li>
+                    <li>
+                        <strong>Fatality Guardrail Protection</strong>
+                        Automated tracking monitors incoming monster rolls, prompting a narrative choice before landing a lethal player blow.
+                    </li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- 🎒 QR Code Ecosystem Integration Callout (Positioned beneath the apps) -->
+        <section class="qr-section">
+            <div class="qr-text">
+                <h2>The Twin-App Ecosystem</h2>
+                <p>Pocket D&D features data-carrying QR generations that bypass the requirement for live server connectivity. When the DM creates custom loot or triggers environmental items inside Pocket DM, a local QR code is rendered instantly on-screen.</p>
+                <p>Players scan the code with Pocket Player to add the item directly into their sheet database, instantly updating background stat structures. No server linking, no table clutter, no broken immersion.</p>
+                <div class="qr-step-mono">LOCAL DATA ROUTE ✦ INSTANT EQUIPMENT DEPLOYMENT ✦ ZERO SERVER LATENCY</div>
+            </div>
+        </section>
+
+        <!-- 🎨 Architectural & System Preferences Section -->
+        <section class="specs-section">
+            <h2>System Specifications & Architecture</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <h4>Inclusive Reading Layouts</h4>
+                    <p>Designed with integrated reader settings including native toggle access for <strong>OpenDyslexic</strong> and <strong>Lexend</strong> system fonts alongside default typography scales.</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Robust Offline Operation</h4>
+                    <p>Features reliable local storage fallbacks so your tables, base content, and tracking engines function continuously without internet connectivity.</p>
+                </div>
+                <div class="spec-item">
+                    <h4>Cloud Integration Paths</h4>
+                    <p>Wired directly with optional <strong>Firebase Authentication and Firestore Syncing</strong> frameworks to secure your player database safely.</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- 📜 Global Site Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Pocket D&D. All rights reserved. Built for tabletop roleplaying autonomy.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
