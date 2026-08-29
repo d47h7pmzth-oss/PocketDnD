@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket D&D - Two Apps. One Game.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0c0f12;
+            --card-bg: #161b22;
+            --accent-primary: #ff3e3e;
+            --accent-hover: #e02f2f;
+            --text-main: #f0f3f6;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.5rem;
+            color: var(--text-main);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .hero-tag {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+        }
+
+        .cta-box {
+            background: linear-gradient(145deg, #1f242c, #161b22);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            max-width: 550px;
+            margin: 0 auto 60px auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .cta-box h3 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .cta-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .cta-form input[type="email"] {
+            background-color: #0c0f12;
+            border: 1px solid var(--border-color);
+            padding: 14px;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border 0.2s;
+        }
+
+        .cta-form input[type="email"]:focus {
+            border-color: var(--accent-primary);
+        }
+
+        .cta-form button {
+            background-color: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .cta-form button:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .privacy-note {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+        }
+
+        .card h2 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+        }
+
+        .card li {
+            margin-bottom: 15px;
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-muted);
+        }
+
+        .card li::before {
+            content: "•";
+            color: var(--accent-primary);
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        .card li strong {
+            color: var(--text-main);
+        }
+
+        .qr-section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .qr-section h2 {
+            font-family: 'Cinzel', serif;
+            margin-bottom: 15px;
+        }
+
+        .qr-steps {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: #0c0f12;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .step-num {
+            color: var(--accent-primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="hero-tag">Two Apps. One Game.</div>
+            <h1>Pocket D&D</h1>
+            <p class="hero-sub">The twin-app ecosystem built exclusively for face-to-face, physical play. No cluttered spreadsheets, no rigid video game automation. Just pure roleplay, organised.</p>
+        </header>
+
+        <div class="cta-box">
+            <h3>Shape the Future of Pocket D&D</h3>
+            <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">We have just hit Apple TestFlight. Sign up to join the Closed Beta, get your testing build, and join the party.</p>
+            
+            <!-- Replace the action URL with your MailerLite / ConvertKit / Formspree form link later -->
+            <form class="cta-form" action="#" method="POST">
+                <input type="email" name="email" placeholder="Enter your email address" required>
+                <button type="submit">Apply for Beta Access</button>
+            </form>
+            <p class="privacy-note">We respect your data. Your email is strictly used for TestFlight invitations. No third parties.</p>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>⚔️ Pocket DM</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Your live-session control centre. Stop flipping through heavy books and endless browser tabs.</p>
+                <ul>
+                    <li><strong>The "Panic Button":</strong> Instant AI-generated NPCs, traps, side quests, and homebrew items that strictly adhere to 5e rules boundaries.</li>
+                    <li><strong>Seamless Initiative:</strong> A lightning-fast tracker with swipe-to-action shortcuts for damage, health adjustments, and turn progression.</li>
+                    <li><strong>The Fatality Guardrail:**</strong> Mid-combat warning that triggers if a blow will kill a character, letting you narrative-knockout them instead.</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>📱 Pocket Player</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">Your character sheet, reimagined. Complete sheet autonomy without sacrificing the tabletop spirit.</p>
+                <ul>
+                    <li><strong>Total Autonomy:</strong> You control your health, stats, and conditions manually. The app handles the heavy math, but never takes away your choices.</li>
+                    <li><strong>Smart Equipment Reader:</strong> The second an item is scanned into your inventory, the app updates your Armor Class (AC) and bonuses accurately.</li>
+                    <li><strong>Roll Your Way:</strong> Use optional in-app digital rolling or roll real, physical dice at the physical table—the app completely adapts to you.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="qr-section">
+            <h2>🎒 Frictionless Digital Handouts</h2>
+            <p style="color: var(--text-muted); max-width: 700px; margin: 0 auto;">No server linking required. Pocket Player and Pocket DM communicate securely via offline-friendly display codes.</p>
+            <div class="qr-steps">
+                <div class="step">
+                    <div class="step-num">1. Create</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">The DM creates or AI-generates custom loot inside Pocket DM.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">2. Scan</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">A dynamic QR code pops up instantly on the DM's device screen.</p>
+                </div>
+                <div class="step">
+                    <div class="step-num">3. Equip</div>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">The player scans it. The item lands safely in their inventory with zero math.</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Pocket D&D. Fully operational offline. Built for the tabletop spirit.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
