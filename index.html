@@ -11,7 +11,7 @@
     <link href="https://googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@600;700&family=Lexend:wght@400;600&family=Spectral:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
     <style>
-        /* 🎨 Pocket D&D Core App Theme Variables - Updated to match logo accents */
+        /* 🎨 Pocket D&D Core App Theme Variables - Centered around periwinkle palette */
         :root {
             --bg-dark: #07080d;
             --bg-card: #121424;
@@ -34,6 +34,299 @@
         }
 
         body {
+            background-color: var(--bg-dark);
+            color: var(--ink-bright);
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            overflow-x: hidden;
+            text-align: center; /* Centralize all content */
+        }
+
+        /* 📐 Global Layout Helpers */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 🌟 Navigation */
+        nav {
+            padding: 32px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 26px;
+            letter-spacing: 1px;
+            color: var(--ink-bright);
+        }
+        .logo span {
+            color: var(--logo-periwinkle);
+        }
+
+        /* ⚔️ Hero Section */
+        header {
+            padding: 80px 0 40px 0;
+        }
+        h1 {
+            font-family: var(--font-display);
+            font-size: 52px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            color: var(--ink-bright);
+        }
+        .hero-sub {
+            max-width: 760px;
+            margin: 0 auto 36px auto;
+            font-size: 20px;
+            line-height: 1.7;
+            color: var(--ink-dim);
+        }
+
+        /* 🧪 CTA Interactive Blocks */
+        .cta-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            margin: 0 auto 80px auto;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+        .cta-box h3 {
+            font-family: var(--font-display);
+            font-size: 22px;
+            margin-bottom: 12px;
+            color: var(--logo-periwinkle);
+        }
+        .cta-box p {
+            font-size: 15px;
+            color: var(--ink-dim);
+            margin-bottom: 24px;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+        input[type="email"] {
+            width: 100%;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            padding: 16px 20px;
+            border-radius: 10px;
+            color: var(--ink-bright);
+            font-family: var(--font-alt);
+            font-size: 15px;
+            outline: none;
+            text-align: center;
+            transition: border-color 0.2s;
+        }
+        input[type="email"]:focus {
+            border-color: var(--logo-periwinkle);
+        }
+        .btn {
+            width: 100%;
+            background-color: var(--logo-periwinkle);
+            color: #07080d;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.2s;
+        }
+        .btn:hover {
+            background-color: var(--logo-accent-light);
+        }
+        .btn:active {
+            transform: scale(0.98);
+        }
+        .privacy-note {
+            margin-top: 18px;
+            font-size: 12px;
+            color: var(--ink-dim);
+            line-height: 1.5;
+        }
+
+        /* 📱 Ecosystem App Cards Layout */
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        .app-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 48px 36px;
+            border-radius: 20px;
+            transition: background-color 0.2s, transform 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .app-card:hover {
+            background-color: var(--bg-card-hover);
+            transform: translateY(-2px);
+        }
+        .app-card h2 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            margin-bottom: 18px;
+            color: var(--logo-periwinkle);
+        }
+        .app-card p {
+            color: var(--ink-dim);
+            margin-bottom: 32px;
+            font-size: 16px;
+            max-width: 400px;
+        }
+        .feature-list {
+            list-style: none;
+            width: 100%;
+            max-width: 420px;
+        }
+        .feature-list li {
+            padding: 14px 0;
+            font-size: 15px;
+            border-bottom: 1px solid rgba(34, 38, 64, 0.4);
+            line-height: 1.6;
+        }
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        .feature-list strong {
+            color: var(--ink-bright);
+            display: block;
+            margin-bottom: 4px;
+            font-family: var(--font-alt);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* 🎒 QR Handout Mechanics Callout */
+        .qr-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 56px 36px;
+            margin-bottom: 80px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .qr-text {
+            max-width: 760px;
+        }
+        .qr-text h2 {
+            font-family: var(--font-display);
+            font-size: 34px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+        .qr-text p {
+            color: var(--ink-dim);
+            font-size: 16px;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        .qr-step-mono {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            background-color: var(--bg-dark);
+            padding: 14px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-top: 12px;
+            border: 1px solid var(--border-color);
+            color: var(--logo-periwinkle);
+            letter-spacing: 1px;
+        }
+
+        /* 🎨 Accessibility Framework Section */
+        .specs-section {
+            padding-bottom: 100px;
+        }
+        .specs-section h2 {
+            font-family: var(--font-display);
+            font-size: 30px;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .spec-item {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 32px 24px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .spec-item h4 {
+            font-family: var(--font-alt);
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: var(--logo-periwinkle);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .spec-item p {
+            font-size: 14px;
+            color: var(--ink-dim);
+            line-height: 1.6;
+            max-width: 260px;
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--ink-dim);
+            font-family: var(--font-alt);
+        }
+
+        /* 📱 Responsive Engineering Queries */
+        @media (max-width: 868px) {
+            h1 { font-size: 38px; }
+            .ecosystem-grid, .specs-grid { grid-template-columns: 1fr; gap: 24px; }
+            .app-card { padding: 36px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 🌟 Navigation Bar -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">POCKET <span>D&D</span></div>
+            <div style="font-family: var(--font-mono); font-size: 12px; color: var(--logo-periwinkle); letter-spacing: 1px;">v1.0.0-BETA</div>
+        </div>
+    </nav>
+
             background-color: var(--bg-dark);
             color: var(--ink-bright);
             font-family: var(--font-body);
