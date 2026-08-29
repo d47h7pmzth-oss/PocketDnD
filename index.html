@@ -69,6 +69,20 @@
             max-width: 640px; margin: 0 auto 48px auto; font-size: 19px; line-height: 1.75; color: var(--ink-dim);
         }
 
+        /* ---------- Stat strip (no box — a quiet flex under the hero) ---------- */
+        .stat-strip {
+            display: flex; align-items: center; justify-content: center; gap: 28px; flex-wrap: wrap;
+            margin: 0 auto 90px auto; padding-bottom: 4px;
+        }
+        .stat { display: flex; flex-direction: column; align-items: center; }
+        .stat-num { font-family: var(--font-display); font-size: 34px; font-weight: 700; color: var(--periwinkle); line-height: 1; }
+        .stat-label {
+            font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 1.5px; text-transform: uppercase;
+            color: var(--ink-faint); margin-top: 8px;
+        }
+        .stat-div { width: 1px; height: 34px; background: var(--border-color); }
+        @media (max-width: 640px) { .stat-div { display: none; } .stat-strip { gap: 24px 36px; } }
+
         /* ---------- CTA / beta signup ---------- */
         .cta-box {
             background-color: var(--bg-card); border: 1px solid var(--border-color);
@@ -171,24 +185,39 @@
             <span class="eyebrow">Two apps · One table</span>
             <h1>Built for the table,<br><em>not instead of it.</em></h1>
             <p class="hero-sub">
-                The bookkeeping, handled — so the game stays the game.
+                No emulated dice. No video-game skin on your character sheet. Just the bookkeeping
+                — hit points, spell slots, every last modifier — handled properly, so the actual
+                game stays exactly what it's always been: you, your friends, and the dice in front
+                of you.
             </p>
         </header>
+
+        <div class="stat-strip">
+            <div class="stat"><span class="stat-num">12</span><span class="stat-label">Classes</span></div>
+            <div class="stat-div"></div>
+            <div class="stat"><span class="stat-num">39</span><span class="stat-label">Subclasses</span></div>
+            <div class="stat-div"></div>
+            <div class="stat"><span class="stat-num">42</span><span class="stat-label">Official Feats</span></div>
+            <div class="stat-div"></div>
+            <div class="stat"><span class="stat-num">0</span><span class="stat-label">Guesswork</span></div>
+        </div>
 
         <div class="cta-box">
             <h3>Join the closed beta</h3>
             <p class="cta-lede">
-                Pocket Player is live on TestFlight. Leave your email for an invite.
+                Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
             </p>
-            <form id="beta-form" class="form-group">
-    <!-- MailerLite hidden configuration targets -->
-    <input type="hidden" name="ml-submit" value="1">
-    <input type="hidden" id="ml-ajax" value="1">
-    
-    <!-- Make sure your email input has these exact ID and name attributes -->
-    <input type="email" id="fields-email" name="fields[email]" placeholder="Enter your email address..." required>
-    <button type="submit" id="submit-btn" class="btn">Apply for Beta Access</button>
-</form>
+            <form
+                id="beta-form"
+                class="form-group"
+                action="https://assets.mailerlite.com/jsonp/2603686/forms/197140170416326550/subscribe"
+                method="post"
+                target="ml-hidden-iframe"
+            >
+                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
+                <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
+                <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+            </form>
             <!--
                 This MailerLite endpoint (note the "jsonp" in its URL) is a classic form-POST
                 target, not a modern CORS-enabled API — it doesn't support fetch(). Submitting
@@ -214,19 +243,19 @@
                 <section class="app-card is-player">
                     <span class="app-card-status">Live · TestFlight Beta</span>
                     <h2>Pocket Player</h2>
-                    <p>Your character sheet, done properly.</p>
+                    <p>Your character sheet, done properly — not approximated.</p>
                     <ul class="feature-list">
                         <li>
-                            <strong>Every Class, Verified</strong>
-                            <span>All 12 classes, 39 subclasses, all 42 feats — real rules, not approximations.</span>
+                            <strong>Homebrew That Actually Works</strong>
+                            <span>Build a custom magic item with real spell-attack bonuses, saving throw DCs, even resources that regenerate on a short rest — not just a name and a note.</span>
                         </li>
                         <li>
                             <strong>Gear That Calculates Itself</strong>
-                            <span>Equip armor, your AC updates. Track whatever resources your build actually uses.</span>
+                            <span>Equip a suit of plate and watch your AC update on the spot. Every resource your build actually uses — Ki, Sorcery Points, Superiority Dice — tracked correctly, automatically.</span>
                         </li>
                         <li>
                             <strong>You Still Roll Your Own Dice</strong>
-                            <span>Reading Font support, works fully offline, optional sync — never required.</span>
+                            <span>Reading Font support built in, fully playable offline, and sync only if you want it — nothing required, nothing sold.</span>
                         </li>
                     </ul>
                 </section>
@@ -234,27 +263,29 @@
                 <section class="app-card is-dm">
                     <span class="app-card-status">In Development</span>
                     <h2>Pocket DM</h2>
-                    <p>The screen behind the screen.</p>
+                    <p>The screen behind the screen, built to disappear.</p>
                     <ul class="feature-list">
                         <li>
                             <strong>Initiative, No Friction</strong>
-                            <span>Turns, damage, conditions — without breaking stride mid-combat.</span>
+                            <span>Turns, damage, conditions — swipe through combat without ever breaking stride to hunt for a rule.</span>
                         </li>
                         <li>
                             <strong>Instant Reference</strong>
-                            <span>Stat blocks and rules on hand, so nothing stalls the table.</span>
+                            <span>Every stat block, right when you need it — no flipping through a PDF while six players wait.</span>
                         </li>
                         <li>
                             <strong>Generated Encounters</strong>
-                            <span>Early AI-assisted monsters and content, scaled to your party.</span>
+                            <span>Early AI-assisted monsters, traps, and side content, scaled to your party's actual level — a direction we're actively building toward.</span>
                         </li>
                     </ul>
                 </section>
             </div>
 
             <p class="qr-note">
-                <strong>Loot crosses the table instantly:</strong> Pocket DM generates a QR code
-                for an item, players scan it into Pocket Player — no server, nothing leaves the
+                <strong>Loot crosses the table instantly:</strong> hand your players a magic item
+                mid-session, and it doesn't wait for after the game. Pocket DM generates a QR
+                code on the spot, players scan it into Pocket Player, and it's in their
+                inventory before you've finished describing it — no server, nothing leaves the
                 table. Scanning already works today; generation is part of what's being built.
             </p>
         </main>
@@ -266,40 +297,25 @@
         </div>
     </footer>
 
-<script>
-    document.getElementById('beta-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const btn = document.getElementById('submit-btn');
-        const emailInput = document.getElementById('fields-email');
-        
-        btn.disabled = true;
-        btn.innerText = "Processing Invite...";
-        
-        // Formulate the data layout MailerLite requires
-        const formData = new FormData();
-        formData.append('ajax', '1');
-        formData.append('fields[email]', emailInput.value);
-        
-        // Securely push the payload directly into your MailerLite account data loop
-        fetch('https://mailerlite.com', {
-            method: 'POST',
-            body: formData,
-            mode: 'cors'
-        })
-        .then(response => {
-            btn.style.backgroundColor = "#24c875"; // Changes button to an on-theme success green
-            btn.style.color = "#ffffff";
-            btn.innerText = "Welcome to the Party! Check your inbox.";
-            emailInput.value = "";
-        })
-        .catch(error => {
-            // Graceful fallback handler
-            console.warn('Data tunnel catch triggered, bypassing network locks.');
-            btn.style.backgroundColor = "#24c875";
-            btn.style.color = "#ffffff";
-            btn.innerText = "Welcome to the Party! Check your inbox.";
-            emailInput.value = "";
+    <script>
+        document.getElementById('beta-form').addEventListener('submit', function () {
+            // Deliberately no e.preventDefault() — the form needs to actually submit to
+            // MailerLite via the hidden iframe. This just updates the UI optimistically right
+            // after the real request goes out, since the response itself can't be read back
+            // across origins (see the HTML comment above the form for why).
+            const btn = document.getElementById('submit-btn');
+            const emailInput = document.getElementById('fields-email');
+            const status = document.getElementById('form-status');
+
+            btn.disabled = true;
+            status.textContent = '';
+            status.className = 'form-status';
+
+            setTimeout(() => {
+                btn.classList.add('is-success');
+                btn.textContent = "You're on the list!";
+                emailInput.value = '';
+            }, 400);
         });
     </script>
 </body>
