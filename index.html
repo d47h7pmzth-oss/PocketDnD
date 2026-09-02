@@ -142,8 +142,7 @@
             </p>
         </div>
     </header>
-
-        <!-- ==================== STYLED STYLE OVERRIDES FOR BOX HARMONY ==================== -->
+    <!-- ==================== STYLED STYLE OVERRIDES FOR BOX HARMONY ==================== -->
     <style>
         .ecosystem-section {
             padding: 60px 20px 80px 20px;
@@ -173,19 +172,18 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 30px;
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             width: 100%;
         }
         .custom-card {
             background-color: #1F1A17;
             border-radius: 12px;
-            padding: 40px 30px;
-            text-align: center;
+            padding: 45px 35px;
             box-sizing: border-box;
             flex: 1;
-            min-width: 280px;
-            max-width: 420px;
+            min-width: 290px;
+            max-width: 440px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -203,22 +201,36 @@
             display: block;
         }
         .custom-card h3 {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             margin-top: 0;
-            margin-bottom: 14px;
-            letter-spacing: 0.5px;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+            text-align: center;
         }
         .player-border h3 { color: #93A5FF; }
         .dm-border h3 { color: #F4B251; }
         
-        .custom-card p {
+        /* Spacious, modern layout alignment for descriptions */
+        .feature-list {
+            width: 100%;
+            text-align: left;
+        }
+        .feature-item {
             font-size: 14px;
             line-height: 1.6;
             color: #E2DCDA;
-            text-align: left;
-            margin: 0;
+            margin-bottom: 20px;
             font-weight: 300;
+        }
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+        .feature-trigger {
+            color: #FFFFFF;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2px;
         }
         .custom-footer {
             text-align: center;
@@ -245,18 +257,42 @@
             <article class="custom-card player-border">
                 <img src="assets/images/player-dice.png" onerror="this.src='images/player-dice.png'" alt="Pocket D&D Player App periwinkle blue dice logo">
                 <h3>POCKET PLAYER</h3>
-                <p>
-                    Your character sheet, done properly — not approximated. An all-in-one digital companion sheet that completely automates complex multi-class combinations, handles seamless leveling recalculations under the hood, enforces active spell slot rules, and updates your inventory values dynamically during item tracking.
-                </p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-trigger">Rulebook Integration</span>
+                        Your character sheet done properly, not approximated. Completely automates complex multi-class combinations.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">Seamless Leveling</span>
+                        Handles complete tracking and bonus modifier recalculations silently under the hood.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">Active Inventory</span>
+                        Enforces slot validation constraints and balances encumbrance values dynamically as items change.
+                    </div>
+                </div>
             </article>
 
             <!-- POCKET DM TOOLKIT MODULE -->
             <article class="custom-card dm-border">
                 <img src="assets/images/dm-dice.png" onerror="this.src='images/dm-dice.png'" alt="Pocket DM Toolkit orange dice logo">
                 <h3>POCKET DM</h3>
-                <p>
-                    The screen behind the screen, built to disappear. Take the pressure off campaign management. Sort complex encounter initiatives with lightning speed, tap the session 'Panic Button' to instantly spin up emergency side-quests or NPCs, and beam custom magic gear directly into player screens using simple, fast QR codes.
-                </p>
+                
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <span class="feature-trigger">Encounter Automation</span>
+                        Take the pressure off management loops. Sort complex combat initiatives with lightning-fast speed.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">The Panic Button</span>
+                        Instantly generate emergency side-quests, modular NPCs, and backup encounter paths on the spot.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">Loot Beaming</span>
+                        Create completely custom magic gear properties and beam them straight onto player screens via QR codes.
+                    </div>
+                </div>
             </article>
 
         </div>
