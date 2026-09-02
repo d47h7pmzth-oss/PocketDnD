@@ -219,12 +219,14 @@
         Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
     </p>
     
+    <!-- Real form target pointing directly to your hidden iframe pipeline -->
     <form
         id="beta-form"
         class="form-group"
         action="https://mailerlite.com"
         method="post"
         target="ml-hidden-iframe"
+        onsubmit="showBetaWarning()"
     >
         <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
         <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
@@ -233,27 +235,38 @@
 
     <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
     
-    <!-- Permanent Styled Helper Note (Visible before and after clicking submit!) -->
-    <p style="
-      color: #D2A36B; 
-      font-family: 'Lexend', sans-serif; 
-      font-size: 13px; 
-      text-align: center; 
-      margin-top: 18px; 
-      margin-bottom: 12px;
-      letter-spacing: 0.5px;
-      line-height: 1.5;
-    ">
-      ⚠️ <strong>Beta passes send instantly!</strong> <br>
-      Please check your <strong>Junk / Spam folder</strong> if the email doesn't land in seconds.
-    </p>
+    <!-- Hidden Warning Module: It starts invisible (display:none) and snaps awake on submit -->
+    <div id="floor-warning-box" style="display: none; background-color: #1F1A17; border: 1px solid #D2A36B; border-radius: 8px; padding: 16px; margin-top: 20px; text-align: center;">
+        <p style="color: #D2A36B; font-family: 'Lexend', sans-serif; font-size: 14px; font-weight: bold; margin: 0 0 4px 0; letter-spacing: 0.5px; line-height: 1.4;">
+            ⚔️ YOU'RE ON THE LIST! CHECK YOUR JUNK FOLDER!
+        </p>
+        <p style="color: #E2DCDA; font-family: 'Lexend', sans-serif; font-size: 12px; margin: 0; font-weight: 300; line-height: 1.4;">
+            Your exclusive token has shipped. Tap "Not Spam" in your Junk/Spam folder to access TestFlight, Android, and Discord!
+        </p>
+    </div>
 
-    <p class="privacy-note">
+    <p class="privacy-note" id="privacy-footer-note" style="margin-top: 20px;">
         🔒 Your email is used only to send TestFlight invites and beta updates. Never sold,
         never shared with anyone else.
     </p>
-</div>
 
+    <!-- Simple, conflict-free visibility toggle script -->
+    <script>
+        function showBetaWarning() {
+            // 1. Instantly unhide our beautiful gold warning message container
+            document.getElementById('floor-warning-box').style.display = 'block';
+            
+            // 2. Clear out the input bar and update the button layout text to mimic a success state
+            document.getElementById('fields-email').value = '';
+            var btn = document.getElementById('submit-btn');
+            if (btn) {
+                btn.innerText = "Success! Check Email";
+                btn.style.backgroundColor = "#4caf50"; // Turns button green natively
+                btn.disabled = true;
+            }
+        }
+    </script>
+</div>
             }
         });
     </script>
