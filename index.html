@@ -15,6 +15,11 @@
     <link href="https://googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Modern CSS reset: Forces padding to scale INSIDE containers instead of stretching them out */
+        * {
+            box-sizing: border-box !important;
+        }
+
         /* Original Core Layout Variables Restored */
         body {
             background-color: #0e0c09;
@@ -23,6 +28,10 @@
             padding: 0;
             font-family: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-font-smoothing: antialiased;
+            
+            /* CRUCIAL FIX: Cuts out side-to-side wobble on mobile devices */
+            overflow-x: hidden;
+            width: 100%;
         }
         .hero-section {
             padding: 80px 20px 40px 20px;
@@ -104,6 +113,7 @@
             font-weight: 300;
         }
     </style>
+
 </head>
 <body>
 
