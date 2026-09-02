@@ -201,7 +201,7 @@
             <div class="stat-div"></div>
             <div class="stat"><span class="stat-num">0</span><span class="stat-label">Guesswork</span></div>
         </div>
-<div class="cta-box" id="cta-box-container">
+<div class="cta-box">
     <h3>Join the closed beta</h3>
     <p class="cta-lede">
         Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
@@ -221,39 +221,27 @@
 
     <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
     
+    <!-- Permanent Styled Helper Note (Visible before and after clicking submit!) -->
+    <p style="
+      color: #D2A36B; 
+      font-family: 'Lexend', sans-serif; 
+      font-size: 13px; 
+      text-align: center; 
+      margin-top: 18px; 
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+      line-height: 1.5;
+    ">
+      ⚠️ <strong>Beta passes send instantly!</strong> <br>
+      Please check your <strong>Junk / Spam folder</strong> if the email doesn't land in seconds.
+    </p>
+
     <p class="privacy-note">
         🔒 Your email is used only to send TestFlight invites and beta updates. Never sold,
         never shared with anyone else.
     </p>
+</div>
 
-    <!-- Inline Script to capture submission and inject the Lexend-styled success card instantly -->
-    <script>
-        document.getElementById('beta-form').addEventListener('submit', function() {
-            var container = document.getElementById('cta-box-container');
-            if (container) {
-                // Instantly injects the custom styled success card layout upon form submission
-                container.innerHTML = `
-                    <h3 style="font-family: 'Lexend', sans-serif; color: #FFFFFF; margin-top: 0; margin-bottom: 12px; font-size: 22px; text-align: center;">You're on the list! ⚔️</h3>
-                    <p style="font-family: 'Lexend', sans-serif; color: #E2DCDA; font-size: 15px; line-height: 1.6; text-align: center; margin-bottom: 24px; font-weight: 300;">
-                        Your exclusive Alpha Access Pass has officially shipped to your inbox.
-                    </p>
-                    <div style="border-top: 1px solid #332A25; padding-top: 16px; margin-top: 16px; text-align: center;">
-                        <p style="
-                            color: #D2A36B; 
-                            font-family: 'Lexend', sans-serif; 
-                            font-size: 14px; 
-                            letter-spacing: 0.5px;
-                            font-weight: bold;
-                            line-height: 1.5;
-                            margin: 0;
-                        ">
-                            🚨 IMPORTANT: CHECK YOUR JUNK / SPAM FOLDER!
-                        </p>
-                        <p style="font-family: 'Lexend', sans-serif; color: #8E827B; font-size: 13px; margin-top: 6px; margin-bottom: 0; font-weight: 300;">
-                            Tap "Not Spam" or "Move to Inbox" to safely unblock your TestFlight, Android, and Discord server invitation links.
-                        </p>
-                    </div>
-                `;
             }
         });
     </script>
