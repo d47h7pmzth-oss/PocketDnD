@@ -17,6 +17,16 @@
     <!-- Core SEO Optimization Tags -->
     <meta name="description" content="Lose the math. Keep the magic. Pocket D&D is a minimalist, luxury dark-mode app duo that completely automates complex multi-classing, level-ups, and live QR code loot beaming.">
     <meta name="keywords" content="pocket dnd, pocket dm, dnd app, digital character sheet, multiclass tracker dnd, dnd 5e character creator, dungeon master tools, automated dnd sheet">
+    <link rel="canonical" href="https://pocketdnd.com/">
+
+    <!-- Social sharing previews (Instagram, Discord, iMessage, Twitter/X, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Pocket D&D">
+    <meta property="og:title" content="Pocket D&D | Streamlined Character Sheets & DM Toolkit">
+    <meta property="og:description" content="Lose the math. Keep the magic. A minimalist, luxury dark-mode app duo for players and DMs.">
+    <meta property="og:url" content="https://pocketdnd.com/">
+    <meta property="og:image" content="https://pocketdnd.com/playerdice.png">
+
     <!-- Google Fonts Lexend API Engine Hook -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -135,6 +145,33 @@
             font-weight: 700;
             display: block;
             margin-bottom: 2px;
+        }
+
+        /* Mobile only: the two cards become a swipeable side-scroll strip.
+           Everything outside .custom-grid (header, heading, signup box, footer)
+           is untouched by this and keeps its normal static layout. */
+        @media (max-width: 700px) {
+            .custom-grid {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                overflow-y: hidden;
+                justify-content: flex-start;
+                gap: 16px;
+                max-width: 100%;
+                margin: 0 -20px;
+                padding: 4px 20px 20px 20px;
+                scroll-snap-type: x mandatory;
+                scroll-padding-left: 20px;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+            }
+            .custom-grid::-webkit-scrollbar { display: none; }
+            .custom-card {
+                flex: 0 0 82%;
+                max-width: 82%;
+                min-width: 260px;
+                scroll-snap-align: start;
+            }
         }
 
         /* ============ Beta / subscribe section ============ */
