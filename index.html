@@ -201,51 +201,64 @@
             <div class="stat-div"></div>
             <div class="stat"><span class="stat-num">0</span><span class="stat-label">Guesswork</span></div>
         </div>
+<div class="cta-box" id="cta-box-container">
+    <h3>Join the closed beta</h3>
+    <p class="cta-lede">
+        Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
+    </p>
+    
+    <form
+        id="beta-form"
+        class="form-group"
+        action="https://mailerlite.com"
+        method="post"
+        target="ml-hidden-iframe"
+    >
+        <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
+        <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
+        <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+    </form>
 
-        <div class="cta-box">
-            <h3>Join the closed beta</h3>
-            <p class="cta-lede">
-                Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
-            </p>
-            <form
-                id="beta-form"
-                class="form-group"
-                action="https://assets.mailerlite.com/jsonp/2603686/forms/197140170416326550/subscribe"
-                method="post"
-                target="ml-hidden-iframe"
-            >
-                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
-                <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
-                <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-            </form>
-            <!--
-                This MailerLite endpoint (note the "jsonp" in its URL) is a classic form-POST
-                target, not a modern CORS-enabled API — it doesn't support fetch(). Submitting
-                into this hidden iframe sends the real request without navigating the page away,
-                but it also means the response can't be read back (cross-origin), so the "Thanks!"
-                state below is optimistic — shown once the browser has sent the request, not
-                confirmed proof MailerLite accepted it. That's the same limitation MailerLite's
-                own generated embed code has with this form type, not something specific to this
-                custom version.
-            -->
-            <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
-            <!-- Styled Helper Note for Pocket D&D Website Form -->
-<p style="
-  color: #D2A36B; 
-  font-family: 'Lexend', sans-serif; 
-  font-size: 13px; 
-  text-align: center; 
-  margin-top: 14px; 
-  letter-spacing: 0.5px;
-  opacity: 0.9;
-">
-  ⚠️ Beta passes send instantly! Check your <strong>Junk / Spam folder</strong> if it doesn't land in seconds.
-</p>
-            <p class="privacy-note">
-                🔒 Your email is used only to send TestFlight invites and beta updates. Never sold,
-                never shared with anyone else.
-            </p>
-        </div>
+    <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
+    
+    <p class="privacy-note">
+        🔒 Your email is used only to send TestFlight invites and beta updates. Never sold,
+        never shared with anyone else.
+    </p>
+
+    <!-- Inline Script to capture submission and inject the Lexend-styled success card instantly -->
+    <script>
+        document.getElementById('beta-form').addEventListener('submit', function() {
+            var container = document.getElementById('cta-box-container');
+            if (container) {
+                // Instantly injects the custom styled success card layout upon form submission
+                container.innerHTML = `
+                    <h3 style="font-family: 'Lexend', sans-serif; color: #FFFFFF; margin-top: 0; margin-bottom: 12px; font-size: 22px; text-align: center;">You're on the list! ⚔️</h3>
+                    <p style="font-family: 'Lexend', sans-serif; color: #E2DCDA; font-size: 15px; line-height: 1.6; text-align: center; margin-bottom: 24px; font-weight: 300;">
+                        Your exclusive Alpha Access Pass has officially shipped to your inbox.
+                    </p>
+                    <div style="border-top: 1px solid #332A25; padding-top: 16px; margin-top: 16px; text-align: center;">
+                        <p style="
+                            color: #D2A36B; 
+                            font-family: 'Lexend', sans-serif; 
+                            font-size: 14px; 
+                            letter-spacing: 0.5px;
+                            font-weight: bold;
+                            line-height: 1.5;
+                            margin: 0;
+                        ">
+                            🚨 IMPORTANT: CHECK YOUR JUNK / SPAM FOLDER!
+                        </p>
+                        <p style="font-family: 'Lexend', sans-serif; color: #8E827B; font-size: 13px; margin-top: 6px; margin-bottom: 0; font-weight: 300;">
+                            Tap "Not Spam" or "Move to Inbox" to safely unblock your TestFlight, Android, and Discord server invitation links.
+                        </p>
+                    </div>
+                `;
+            }
+        });
+    </script>
+</div>
+
 
         <main>
             <div class="section-label">The ecosystem</div>
