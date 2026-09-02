@@ -226,7 +226,7 @@
         action="https://mailerlite.com"
         method="post"
         target="ml-hidden-iframe"
-        onsubmit="showBetaWarning()"
+        onsubmit="showBetaWarning(event)"
     >
         <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
         <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
@@ -252,25 +252,27 @@
 
     <!-- Simple, conflict-free visibility toggle script -->
     <script>
-        function showBetaWarning() {
+        function showBetaWarning(event) {
             // 1. Instantly unhide our beautiful gold warning message container
             document.getElementById('floor-warning-box').style.display = 'block';
             
-            // 2. Clear out the input bar and update the button layout text to mimic a success state
-            document.getElementById('fields-email').value = '';
+            // 2. Clear out the input bar and handle button visual text changes
             var btn = document.getElementById('submit-btn');
             if (btn) {
                 btn.innerText = "Success! Check Email";
                 btn.style.backgroundColor = "#4caf50"; // Turns button green natively
-                btn.disabled = true;
+                
+                // 3. CRUCIAL FIX: Wait 100 milliseconds before disabling the button.
+                // This gives the browser plenty of time to launch the data safely out to MailerLite first!
+                setTimeout(function() {
+                    btn.disabled = true;
+                    document.getElementById('fields-email').value = '';
+                }, 100);
             }
         }
     </script>
 </div>
-            }
-        });
-    </script>
-</div>
+
 
 
         <main>
