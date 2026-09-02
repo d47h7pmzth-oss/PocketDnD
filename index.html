@@ -9,19 +9,14 @@
     <meta name="description" content="Lose the math. Keep the magic. Pocket D&D is a minimalist, luxury dark-mode app duo that completely automates complex multi-classing, level-ups, and live QR code loot beaming.">
     <meta name="keywords" content="pocket dnd, pocket dm, dnd app, digital character sheet, multiclass tracker dnd, dnd 5e character creator, dungeon master tools, automated dnd sheet">
 
-    <!-- Open Graph Social Media Link Sharing Previews -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://pocketdnd.com">
-    <meta property="og:title" content="Pocket D&D | Streamlined Character Sheets & DM Toolkit">
-    <meta property="og:description" content="An all-in-one companion app ecosystem built for players and DMs. Automate your table rules in a beautiful, minimalist interface.">
-    <meta property="og:image" content="https://pocketdnd.comassets/images/player-dice.png">
-
     <!-- Google Fonts Lexend API Engine Hook -->
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
+        /* Modern CSS reset to guarantee perfect alignment on mobile and desktop layout fields */
+        * { box-sizing: border-box; }
         body {
             background-color: #0e0c09;
             color: #E2DCDA;
@@ -30,10 +25,113 @@
             font-family: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
             -webkit-font-smoothing: antialiased;
         }
-        .hero-section {
-            padding: 80px 20px 40px 20px;
-            text-align: center;
-            max-width: 800px;
+    </style>
+</head>
+<body>
+
+    <!-- ==================== MAIN HERO AND SIGNUP BLOCK ==================== -->
+    <header style="padding: 60px 20px 20px 20px; text-align: center; max-width: 800px; margin: 0 auto;">
+        <h1 style="color: #FFFFFF; font-size: 38px; font-weight: 700; letter-spacing: 2px; margin: 0 0 12px 0;">POCKET D&D</h1>
+        <p style="color: #D2A36B; font-size: 16px; letter-spacing: 1px; margin: 0 0 35px 0; font-weight: 300;">Lose the math. Keep the magic.</p>
+        
+        <!-- Premium Form Container Box -->
+        <div style="background-color: #1F1A17; border: 1px solid #332A25; border-radius: 12px; padding: 40px 30px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center;">
+            <h3 style="color: #FFFFFF; font-size: 22px; margin: 0 0 10px 0; font-weight: 700;">Join the closed beta</h3>
+            <p style="font-size: 14px; line-height: 1.5; color: #E2DCDA; margin: 0 0 24px 0; font-weight: 300;">
+                Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
+            </p>
+            
+            <form
+                id="beta-form"
+                style="display: flex; flex-direction: column; gap: 12px; max-width: 380px; margin: 0 auto;"
+                action="https://mailerlite.com"
+                method="post"
+                target="ml-hidden-iframe"
+                onsubmit="handleFormSubmit(event)"
+            >
+                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required style="background-color: #0e0c09; border: 1px solid #332A25; border-radius: 6px; padding: 14px; color: #FFFFFF; font-family: 'Lexend', sans-serif; font-size: 15px; width: 100%;">
+                <button type="submit" id="submit-btn" style="background-color: #D2A36B; color: #1F1A17; border: none; border-radius: 6px; padding: 14px; font-family: 'Lexend', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%;">Request Beta Access</button>
+            </form>
+
+            <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
+            
+            <!-- Gold Verification Dropdown Alert (Visible on click submit!) -->
+            <div id="floor-warning-box" style="display: none; background-color: #0e0c09; border: 1px solid #D2A36B; border-radius: 8px; padding: 16px; margin-top: 20px;">
+                <p style="color: #D2A36B; font-size: 13px; font-weight: bold; margin: 0 0 6px 0; letter-spacing: 0.5px; text-align: center;">
+                    ⚔️ YOU'RE ON THE LIST! CHECK YOUR JUNK FOLDER!
+                </p>
+                <p style="color: #E2DCDA; font-size: 12px; margin: 0; font-weight: 300; line-height: 1.5; text-align: center;">
+                    Your exclusive pass has shipped. Open your <strong>Junk / Spam folder</strong> and toggle "Not Spam" to unblock your TestFlight & Discord links!
+                </p>
+            </div>
+
+            <p style="font-size: 12px; color: #8E827B; margin-top: 20px; margin-bottom: 0; font-weight: 300;">
+                🔒 Your email is used only to send TestFlight invites and beta updates. Never sold or shared.
+            </p>
+        </div>
+    </header>
+
+    <!-- ==================== ECOSYSTEM PRODUCT FEATURE CARDS ==================== -->
+    <main style="padding: 40px 20px 60px 20px; max-width: 1000px; margin: 0 auto;">
+        <p style="color: #8E827B; font-size: 12px; text-align: center; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">The Ecosystem</p>
+        <h2 style="color: #FFFFFF; font-size: 26px; text-align: center; font-weight: 700; letter-spacing: 1px; margin-top: 0; margin-bottom: 40px;">ONE GAME, TWO SEATS AT THE TABLE</h2>
+
+        <!-- Optimized Responsive Grid Container Flexbox Box -->
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 900px; margin: 0 auto;">
+            
+            <!-- POCKET PLAYER CARD COMPONENT -->
+            <div style="flex: 1; min-width: 280px; max-width: 420px; background-color: #1F1A17; border: 1px solid #93A5FF; border-radius: 12px; padding: 35px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <!-- FALLBACK CHECK: If folders change, it pulls image directly from main assets directory safely -->
+                <img src="assets/images/player-dice.png" onerror="this.src='images/player-dice.png'" alt="Pocket D&D Player App periwinkle blue dice logo" style="width: 75px; height: auto; margin-bottom: 20px; display: block;">
+                <h3 style="color: #93A5FF; font-size: 19px; font-weight: 700; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.5px;">POCKET PLAYER</h3>
+                <p style="font-size: 13px; line-height: 1.6; color: #E2DCDA; text-align: left; margin: 0; font-weight: 300;">
+                    Your character sheet, done properly — not approximated. An all-in-one digital companion sheet that completely automates complex multi-class combinations, handles seamless leveling recalculations under the hood, enforces active spell slot rules, and updates your inventory values dynamically during item tracking.
+                </p>
+            </div>
+
+            <!-- POCKET DM TOOLKIT CARD COMPONENT -->
+            <div style="flex: 1; min-width: 280px; max-width: 420px; background-color: #1F1A17; border: 1px solid #F4B251; border-radius: 12px; padding: 35px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <img src="assets/images/dm-dice.png" onerror="this.src='images/dm-dice.png'" alt="Pocket DM Toolkit orange dice logo" style="width: 75px; height: auto; margin-bottom: 20px; display: block;">
+                <h3 style="color: #F4B251; font-size: 19px; font-weight: 700; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.5px;">POCKET DM</h3>
+                <p style="font-size: 13px; line-height: 1.6; color: #E2DCDA; text-align: left; margin: 0; font-weight: 300;">
+                    The screen behind the screen, built to disappear. Take the pressure off campaign management. Sort complex encounter initiatives with lightning speed, tap the session 'Panic Button' to instantly spin up emergency side-quests or NPCs, and beam custom magic gear directly into player screens using simple, fast QR codes.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SIGNATURE BAR -->
+    <footer style="text-align: center; padding: 40px 20px; color: #8E827B; font-size: 12px;">
+        <p style="margin: 0 0 6px 0;">Pocket D&D App Ecosystem &copy; 2026</p>
+        <p><a href="https://pocketdnd.com" style="color: #D2A36B; text-decoration: none;">pocketdnd.com</a> &bull; <a href="https://instagram.com" target="_blank" style="color: #D2A36B; text-decoration: none;">@pocketdnd</a></p>
+    </footer>
+
+    <!-- TRANSACTION BUFFER PIPELINE INTERCEPT SCRIPT -->
+    <script>
+        function handleFormSubmit(event) {
+            var warningBox = document.getElementById('floor-warning-box');
+            if (warningBox) {
+                warningBox.style.display = 'block';
+            }
+            var btn = document.getElementById('submit-btn');
+            if (btn) {
+                btn.innerText = "Success! Check Email";
+                btn.style.backgroundColor = "#4caf50";
+                btn.style.color = "#FFFFFF";
+                
+                setTimeout(function() {
+                    btn.disabled = true;
+                    var inputField = document.getElementById('fields-email');
+                    if (inputField) {
+                        inputField.value = '';
+                    }
+                }, 150);
+            }
+        }
+    </script>
+</body>
+</html>
             margin: 0 auto;
         }
         .hero-section h1 {
