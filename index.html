@@ -15,47 +15,235 @@
     <link href="https://googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
 
     <style>
-        /* Modern CSS reset to guarantee perfect alignment on mobile and desktop layout fields */
-        * { box-sizing: border-box; }
-        body {
-            background-color: #0e0c09;
-            color: #E2DCDA;
-            margin: 0;
-            padding: 0;
-            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
-            -webkit-font-smoothing: antialiased;
+        /* Hyper-targeted CSS layout block to isolate Pocket D&D from conflicting styles */
+        .pnd-wrapper {
+            background-color: #0e0c09 !important;
+            color: #E2DCDA !important;
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif !important;
+            margin: 0 !important;
+            padding: 40px 20px !important;
+            min-height: 100vh !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+            box-sizing: border-box !important;
+        }
+        
+        .pnd-wrapper * {
+            box-sizing: border-box !important;
+        }
+
+        .pnd-header {
+            text-align: center !important;
+            margin-bottom: 40px !important;
+            width: 100% !important;
+            max-width: 600px !important;
+        }
+
+        .pnd-header h1 {
+            color: #FFFFFF !important;
+            font-size: 42px !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px !important;
+            margin: 0 0 10px 0 !important;
+        }
+
+        .pnd-header p.tagline {
+            color: #D2A36B !important;
+            font-size: 16px !important;
+            letter-spacing: 1px !important;
+            margin: 0 0 30px 0 !important;
+            font-weight: 300 !important;
+        }
+
+        /* Isolated Signup Funnel Container Box */
+        .pnd-cta-card {
+            background-color: #1F1A17 !important;
+            border: 1px solid #332A25 !important;
+            border-radius: 12px !important;
+            padding: 35px 25px !important;
+            width: 100% !important;
+            max-width: 480px !important;
+            margin: 0 auto !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6) !important;
+            text-align: center !important;
+        }
+
+        .pnd-cta-card h3 {
+            color: #FFFFFF !important;
+            font-size: 22px !important;
+            margin: 0 0 10px 0 !important;
+            font-weight: 700 !important;
+        }
+
+        .pnd-cta-card p.lede {
+            font-size: 14px !important;
+            line-height: 1.5 !important;
+            color: #E2DCDA !important;
+            margin: 0 0 24px 0 !important;
+            font-weight: 300 !important;
+        }
+
+        /* Input Form Elements styling architecture */
+        .pnd-form {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            width: 100% !important;
+            max-width: 380px !important;
+            margin: 0 auto !important;
+        }
+
+        .pnd-input {
+            background-color: #0e0c09 !important;
+            border: 1px solid #332A25 !important;
+            border-radius: 6px !important;
+            padding: 14px !important;
+            color: #FFFFFF !important;
+            font-family: 'Lexend', sans-serif !important;
+            font-size: 15px !important;
+            width: 100% !important;
+        }
+
+        .pnd-input:focus {
+            outline: none !important;
+            border-color: #D2A36B !important;
+        }
+
+        .pnd-btn {
+            background-color: #D2A36B !important;
+            color: #1F1A17 !important;
+            border: none !important;
+            border-radius: 6px !important;
+            padding: 14px !important;
+            font-family: 'Lexend', sans-serif !important;
+            font-size: 15px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            width: 100% !important;
+        }
+
+        /* Highly Balanced Dual Column Grid System */
+        .pnd-ecosystem {
+            width: 100% !important;
+            max-width: 900px !important;
+            margin: 60px auto 40px auto !important;
+        }
+
+        .pnd-ecosystem p.label {
+            color: #8E827B !important;
+            font-size: 12px !important;
+            text-align: center !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+            margin: 0 0 6px 0 !important;
+        }
+
+        .pnd-ecosystem h2 {
+            color: #FFFFFF !important;
+            font-size: 26px !important;
+            text-align: center !important;
+            font-weight: 700 !important;
+            letter-spacing: 1px !important;
+            margin: 0 0 40px 0 !important;
+        }
+
+        .pnd-grid {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            justify-content: center !important;
+            gap: 30px !important;
+            width: 100% !important;
+        }
+
+        /* Unified App Showcase Boxes with perfect paragraph block alignments */
+        .pnd-card {
+            flex: 1 !important;
+            min-width: 300px !important;
+            max-width: 420px !important;
+            background-color: #1F1A17 !important;
+            border-radius: 12px !important;
+            padding: 40px 30px !important;
+            text-align: center !important;
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: center !important;
+        }
+
+        .pnd-card-player { border: 1px solid #93A5FF !important; }
+        .pnd-card-dm { border: 1px solid #F4B251 !important; }
+
+        .pnd-card img {
+            width: 75px !important;
+            height: auto !important;
+            margin: 0 auto 24px auto !important;
+            display: block !important;
+        }
+
+        .pnd-card h3 {
+            font-size: 20px !important;
+            font-weight: 700 !important;
+            margin: 0 0 16px 0 !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .pnd-card-player h3 { color: #93A5FF !important; }
+        .pnd-card-dm h3 { color: #F4B251 !important; }
+
+        /* Nicer, clean paragraph block alignment for descriptions */
+        .pnd-card p {
+            font-size: 14px !important;
+            line-height: 1.6 !important;
+            color: #E2DCDA !important;
+            text-align: justify !important;
+            text-justify: inter-word !important;
+            margin: 0 !important;
+            font-weight: 300 !important;
+        }
+
+        .pnd-footer {
+            text-align: center !important;
+            padding: 20px 20px 40px 20px !important;
+            color: #8E827B !important;
+            font-size: 12px !important;
+            width: 100% !important;
+        }
+        
+        .pnd-footer a {
+            color: #D2A36B !important;
+            text-decoration: none !important;
         }
     </style>
 </head>
-<body>
+<body class="pnd-wrapper">
 
-    <!-- ==================== MAIN HERO AND SIGNUP BLOCK ==================== -->
-    <header style="padding: 60px 20px 20px 20px; text-align: center; max-width: 800px; margin: 0 auto;">
-        <h1 style="color: #FFFFFF; font-size: 38px; font-weight: 700; letter-spacing: 2px; margin: 0 0 12px 0;">POCKET D&D</h1>
-        <p style="color: #D2A36B; font-size: 16px; letter-spacing: 1px; margin: 0 0 35px 0; font-weight: 300;">Lose the math. Keep the magic.</p>
+    <!-- HERO HEADER ACCENT LAYOUT -->
+    <header class="pnd-header">
+        <h1>POCKET D&D</h1>
+        <p class="tagline">Lose the math. Keep the magic.</p>
         
-        <!-- Premium Form Container Box -->
-        <div style="background-color: #1F1A17; border: 1px solid #332A25; border-radius: 12px; padding: 40px 30px; max-width: 500px; margin: 0 auto; box-shadow: 0 10px 30px rgba(0,0,0,0.5); text-align: center;">
-            <h3 style="color: #FFFFFF; font-size: 22px; margin: 0 0 10px 0; font-weight: 700;">Join the closed beta</h3>
-            <p style="font-size: 14px; line-height: 1.5; color: #E2DCDA; margin: 0 0 24px 0; font-weight: 300;">
+        <!-- BACKEND SUBSCRIPTION GATEWAY -->
+        <div class="pnd-cta-card">
+            <h3>Join the closed beta</h3>
+            <p class="pnd-lede">
                 Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
             </p>
             
             <form
                 id="beta-form"
-                style="display: flex; flex-direction: column; gap: 12px; max-width: 380px; margin: 0 auto;"
+                class="pnd-form"
                 action="https://mailerlite.com"
                 method="post"
                 target="ml-hidden-iframe"
                 onsubmit="handleFormSubmit(event)"
             >
-                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required style="background-color: #0e0c09; border: 1px solid #332A25; border-radius: 6px; padding: 14px; color: #FFFFFF; font-family: 'Lexend', sans-serif; font-size: 15px; width: 100%;">
-                <button type="submit" id="submit-btn" style="background-color: #D2A36B; color: #1F1A17; border: none; border-radius: 6px; padding: 14px; font-family: 'Lexend', sans-serif; font-size: 15px; font-weight: 700; cursor: pointer; width: 100%;">Request Beta Access</button>
+                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" class="pnd-input" required>
+                <button type="submit" id="submit-btn" class="pnd-btn">Request Beta Access</button>
             </form>
 
             <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
             
-            <!-- Gold Verification Dropdown Alert (Visible on click submit!) -->
+            <!-- Gold Verification System Notification Block -->
             <div id="floor-warning-box" style="display: none; background-color: #0e0c09; border: 1px solid #D2A36B; border-radius: 8px; padding: 16px; margin-top: 20px;">
                 <p style="color: #D2A36B; font-size: 13px; font-weight: bold; margin: 0 0 6px 0; letter-spacing: 0.5px; text-align: center;">
                     ⚔️ YOU'RE ON THE LIST! CHECK YOUR JUNK FOLDER!
@@ -70,308 +258,37 @@
             </p>
         </div>
     </header>
+    <!-- CORE PLATFORM COMPONENT DESCRIPTION SHOWCASE -->
+    <main class="pnd-ecosystem">
+        <p class="label">The Ecosystem</p>
+        <h2>ONE GAME, TWO SEATS AT THE TABLE</h2>
 
-    <!-- ==================== ECOSYSTEM PRODUCT FEATURE CARDS ==================== -->
-    <main style="padding: 40px 20px 60px 20px; max-width: 1000px; margin: 0 auto;">
-        <p style="color: #8E827B; font-size: 12px; text-align: center; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 6px;">The Ecosystem</p>
-        <h2 style="color: #FFFFFF; font-size: 26px; text-align: center; font-weight: 700; letter-spacing: 1px; margin-top: 0; margin-bottom: 40px;">ONE GAME, TWO SEATS AT THE TABLE</h2>
-
-        <!-- Optimized Responsive Grid Container Flexbox Box -->
-        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; max-width: 900px; margin: 0 auto;">
+        <div class="pnd-grid">
             
             <!-- POCKET PLAYER CARD COMPONENT -->
-            <div style="flex: 1; min-width: 280px; max-width: 420px; background-color: #1F1A17; border: 1px solid #93A5FF; border-radius: 12px; padding: 35px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <!-- FALLBACK CHECK: If folders change, it pulls image directly from main assets directory safely -->
-                <img src="assets/images/player-dice.png" onerror="this.src='images/player-dice.png'" alt="Pocket D&D Player App periwinkle blue dice logo" style="width: 75px; height: auto; margin-bottom: 20px; display: block;">
-                <h3 style="color: #93A5FF; font-size: 19px; font-weight: 700; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.5px;">POCKET PLAYER</h3>
-                <p style="font-size: 13px; line-height: 1.6; color: #E2DCDA; text-align: left; margin: 0; font-weight: 300;">
+            <div class="pnd-card pnd-card-player">
+                <img src="assets/images/player-dice.png" onerror="this.src='images/player-dice.png'" alt="Pocket D&D Player App periwinkle blue dice logo">
+                <h3>POCKET PLAYER</h3>
+                <p>
                     Your character sheet, done properly — not approximated. An all-in-one digital companion sheet that completely automates complex multi-class combinations, handles seamless leveling recalculations under the hood, enforces active spell slot rules, and updates your inventory values dynamically during item tracking.
                 </p>
             </div>
 
             <!-- POCKET DM TOOLKIT CARD COMPONENT -->
-            <div style="flex: 1; min-width: 280px; max-width: 420px; background-color: #1F1A17; border: 1px solid #F4B251; border-radius: 12px; padding: 35px; text-align: center; display: flex; flex-direction: column; align-items: center;">
-                <img src="assets/images/dm-dice.png" onerror="this.src='images/dm-dice.png'" alt="Pocket DM Toolkit orange dice logo" style="width: 75px; height: auto; margin-bottom: 20px; display: block;">
-                <h3 style="color: #F4B251; font-size: 19px; font-weight: 700; margin-top: 0; margin-bottom: 12px; letter-spacing: 0.5px;">POCKET DM</h3>
-                <p style="font-size: 13px; line-height: 1.6; color: #E2DCDA; text-align: left; margin: 0; font-weight: 300;">
-                    The screen behind the screen, built to disappear. Take the pressure off campaign management. Sort complex encounter initiatives with lightning speed, tap the session 'Panic Button' to instantly spin up emergency side-quests or NPCs, and beam custom magic gear directly into player screens using simple, fast QR codes.
-                </p>
-            </div>
-
-        </div>
-    </main>
-
-    <!-- FOOTER SIGNATURE BAR -->
-    <footer style="text-align: center; padding: 40px 20px; color: #8E827B; font-size: 12px;">
-        <p style="margin: 0 0 6px 0;">Pocket D&D App Ecosystem &copy; 2026</p>
-        <p><a href="https://pocketdnd.com" style="color: #D2A36B; text-decoration: none;">pocketdnd.com</a> &bull; <a href="https://instagram.com" target="_blank" style="color: #D2A36B; text-decoration: none;">@pocketdnd</a></p>
-    </footer>
-
-    <!-- TRANSACTION BUFFER PIPELINE INTERCEPT SCRIPT -->
-    <script>
-        function handleFormSubmit(event) {
-            var warningBox = document.getElementById('floor-warning-box');
-            if (warningBox) {
-                warningBox.style.display = 'block';
-            }
-            var btn = document.getElementById('submit-btn');
-            if (btn) {
-                btn.innerText = "Success! Check Email";
-                btn.style.backgroundColor = "#4caf50";
-                btn.style.color = "#FFFFFF";
-                
-                setTimeout(function() {
-                    btn.disabled = true;
-                    var inputField = document.getElementById('fields-email');
-                    if (inputField) {
-                        inputField.value = '';
-                    }
-                }, 150);
-            }
-        }
-    </script>
-</body>
-</html>
-            margin: 0 auto;
-        }
-        .hero-section h1 {
-            color: #FFFFFF;
-            font-size: 42px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin: 0 0 16px 0;
-        }
-        .hero-section p.tagline {
-            color: #D2A36B;
-            font-size: 18px;
-            letter-spacing: 1px;
-            margin: 0 0 40px 0;
-            font-weight: 300;
-        }
-        .cta-box {
-            background-color: #1F1A17;
-            border: 1px solid #332A25;
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 550px;
-            margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
-            box-sizing: border-box;
-        }
-        .cta-box h3 {
-            color: #FFFFFF;
-            font-size: 24px;
-            margin: 0 0 12px 0;
-            font-weight: 700;
-        }
-        .cta-lede {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #E2DCDA;
-            margin: 0 0 24px 0;
-            font-weight: 300;
-        }
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        input[type="email"] {
-            background-color: #0e0c09;
-            border: 1px solid #332A25;
-            border-radius: 6px;
-            padding: 14px;
-            color: #FFFFFF;
-            font-family: 'Lexend', sans-serif;
-            font-size: 15px;
-            box-sizing: border-box;
-            transition: border-color 0.2s;
-        }
-        input[type="email"]:focus {
-            outline: none;
-            border-color: #D2A36B;
-        }
-        .btn {
-            background-color: #D2A36B;
-            color: #1F1A17;
-            border: none;
-            border-radius: 6px;
-            padding: 14px;
-            font-family: 'Lexend', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: opacity 0.2s, background-color 0.2s;
-        }
-        .btn:hover {
-            opacity: 0.9;
-        }
-        .privacy-note {
-            font-size: 12px;
-            color: #8E827B;
-            margin-top: 20px;
-            margin-bottom: 0;
-            font-weight: 300;
-        }
-        .ecosystem-section {
-            padding: 0 20px 80px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            box-sizing: border-box;
-        }
-        .ecosystem-section p.sub {
-            color: #8E827B;
-            font-size: 13px;
-            text-align: center;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        .ecosystem-section h2 {
-            color: #FFFFFF;
-            font-size: 28px;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: 1px;
-            margin-top: 0;
-            margin-bottom: 48px;
-        }
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .app-card {
-            background-color: #1F1A17;
-            border-radius: 12px;
-            padding: 35px;
-            text-align: center;
-            box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .player-card {
-            border: 1px solid #93A5FF;
-        }
-        .dm-card {
-            border: 1px solid #F4B251;
-        }
-        .app-card img {
-            width: 80px;
-            height: auto;
-            margin-bottom: 24px;
-            display: block;
-        }
-        .app-card h3 {
-            font-size: 20px;
-            font-weight: 700;
-            margin-top: 0;
-            margin-bottom: 14px;
-            letter-spacing: 0.5px;
-        }
-        .player-card h3 { color: #93A5FF; }
-        .dm-card h3 { color: #F4B251; }
-        .app-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #E2DCDA;
-            text-align: left;
-            margin: 0;
-            font-weight: 300;
-        }
-        .footer {
-            text-align: center;
-            padding: 40px 20px;
-            border-top: 1px solid #1F1A17;
-            color: #8E827B;
-            font-size: 13px;
-        }
-        .footer a {
-            color: #D2A36B;
-            text-decoration: none;
-        }
-    </style>
-</head>
-<body>
-
-    <!-- HERO HEADER ACCENT LAYOUT -->
-    <header class="hero-section">
-        <h1>POCKET D&D</h1>
-        <p class="tagline">Lose the math. Keep the magic.</p>
-        
-        <!-- BACKEND SUBSCRIPTION GATEWAY -->
-        <div class="cta-box">
-            <h3>Join the closed beta</h3>
-            <p class="cta-lede">
-                Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.
-            </p>
-            
-            <form
-                id="beta-form"
-                class="form-group"
-                action="https://mailerlite.com"
-                method="post"
-                target="ml-hidden-iframe"
-                onsubmit="handleFormSubmit(event)"
-            >
-                <input type="email" id="fields-email" name="fields[email]" placeholder="you@example.com" required>
-                <button type="submit" id="submit-btn" class="btn">Request Beta Access</button>
-            </form>
-
-            <iframe name="ml-hidden-iframe" style="display:none;" title="form submission target"></iframe>
-            
-            <!-- Dynamic Inline Dropdown System Pass Notification Block -->
-            <div id="floor-warning-box" style="display: none; background-color: #0e0c09; border: 1px solid #D2A36B; border-radius: 8px; padding: 18px; margin-top: 24px; box-sizing: border-box;">
-                <p style="color: #D2A36B; font-size: 14px; font-weight: bold; margin: 0 0 6px 0; letter-spacing: 0.5px; text-align: center;">
-                    ⚔️ YOU'RE ON THE LIST! CHECK YOUR JUNK FOLDER!
-                </p>
-                <p style="color: #E2DCDA; font-size: 13px; margin: 0; font-weight: 300; line-height: 1.5; text-align: center;">
-                    Your exclusive token has shipped. Open your <strong>Junk / Spam folder</strong> and toggle "Not Spam" to unblock your TestFlight, Android, and Discord server tokens!
-                </p>
-            </div>
-
-            <p class="privacy-note">
-                🔒 Your email is used only to send TestFlight invites and beta updates. Never sold or shared.
-            </p>
-        </div>
-    </header>
-    <!-- CORE PLATFORM COMPONENT DESCRIPTION SHOWCASE -->
-    <main class="ecosystem-section">
-        <p class="sub">The Ecosystem</p>
-        <h2>ONE GAME, TWO SEATS AT THE TABLE</h2>
-
-        <div class="grid-container">
-            
-            <!-- ACTIVE DOCKING BOX: POCKET PLAYER APP MODULE -->
-            <article class="app-card player-card">
-                <img src="assets/images/player-dice.png" alt="Pocket D&D Player App periwinkle blue dice logo">
-                <h3>POCKET PLAYER</h3>
-                <p>
-                    Your character sheet, done properly — not approximated. An all-in-one digital companion sheet that completely automates complex multi-class combinations, handles seamless leveling recalculations under the hood, enforces active spell slot rules, and updates your inventory values dynamically during item tracking.
-                </p>
-            </article>
-
-            <!-- ACTIVE DOCKING BOX: POCKET DM TOOLKIT MODULE -->
-            <article class="app-card dm-card">
-                <img src="assets/images/dm-dice.png" alt="Pocket DM Toolkit orange dice logo">
+            <div class="pnd-card pnd-card-dm">
+                <img src="assets/images/dm-dice.png" onerror="this.src='images/dm-dice.png'" alt="Pocket DM Toolkit orange dice logo">
                 <h3>POCKET DM</h3>
                 <p>
                     The screen behind the screen, built to disappear. Take the pressure off campaign management. Sort complex encounter initiatives with lightning speed, tap the session 'Panic Button' to instantly spin up emergency side-quests or NPCs, and beam custom magic gear directly into player screens using simple, fast QR codes.
                 </p>
-            </article>
+            </div>
 
         </div>
     </main>
 
     <!-- FOOTER LINK SYMMETRY LAYER -->
-    <footer class="footer">
-        <p style="margin-bottom: 6px;">Pocket D&D App Ecosystem &copy; 2026</p>
+    <footer class="pnd-footer">
+        <p style="margin: 0 0 6px 0;">Pocket D&D App Ecosystem &copy; 2026</p>
         <p><a href="https://pocketdnd.com">pocketdnd.com</a> &bull; <a href="https://instagram.com" target="_blank">@pocketdnd</a></p>
     </footer>
 
@@ -388,7 +305,6 @@
                 btn.style.backgroundColor = "#4caf50";
                 btn.style.color = "#FFFFFF";
                 
-                // Forces a 150ms buffer window so packet delivery clears out to MailerLite safely
                 setTimeout(function() {
                     btn.disabled = true;
                     var inputField = document.getElementById('fields-email');
