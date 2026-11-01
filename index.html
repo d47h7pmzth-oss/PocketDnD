@@ -14,25 +14,24 @@
     <link rel="icon" type="image/png" sizes="192x192" href="androidchrome192x192.png">
     <link rel="icon" type="image/png" sizes="512x512" href="androidchrome512x512.png">
 
-    <!-- Core SEO Optimization Tags -->
-    <meta name="description" content="Lose the math. Keep the magic. Pocket D&D is a minimalist, luxury dark-mode app duo that completely automates complex multi-classing, level-ups, and live QR code loot beaming.">
-    <meta name="keywords" content="pocket dnd, pocket dm, dnd app, digital character sheet, multiclass tracker dnd, dnd 5e character creator, dungeon master tools, automated dnd sheet">
+    <!-- Core SEO -->
+    <meta name="description" content="Lose the math. Keep the magic. Pocket Player and Pocket DM are a pair of beautifully simple fifth edition companion apps: a character sheet that does the maths for you, and a DM toolkit that beams loot straight to your players by QR code.">
+    <meta name="keywords" content="pocket dnd, pocket dm, pocket player, 5e character sheet app, multiclass tracker, dungeon master tools, dm toolkit app, tabletop rpg companion">
     <link rel="canonical" href="https://pocketdnd.com/">
 
-    <!-- Social sharing previews (Instagram, Discord, iMessage, Twitter/X, etc.) -->
+    <!-- Social sharing previews -->
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pocket D&D">
     <meta property="og:title" content="Pocket D&D | Streamlined Character Sheets & DM Toolkit">
-    <meta property="og:description" content="Lose the math. Keep the magic. A minimalist, luxury dark-mode app duo for players and DMs.">
+    <meta property="og:description" content="Lose the math. Keep the magic. Two companion apps for players and DMs, now in closed beta.">
     <meta property="og:url" content="https://pocketdnd.com/">
     <meta property="og:image" content="https://pocketdnd.com/playerdice.png">
 
-    <!-- Google Fonts Lexend API Engine Hook -->
+    <!-- Google Fonts: Lexend -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=JetBrains+Mono:wght@600;700&family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        /* Modern CSS reset: Forces padding to scale INSIDE containers instead of stretching them out */
         * {
             box-sizing: border-box !important;
         }
@@ -53,6 +52,7 @@
             margin: 0 auto;
         }
         .hero-section h1 {
+            font-family: 'Cinzel', Georgia, serif;
             color: #FFFFFF;
             font-size: 42px;
             font-weight: 700;
@@ -67,14 +67,47 @@
             font-weight: 300;
         }
 
+
+        /* ============ Arcane card treatment (ported from the apps' arcane-effects.js) ============
+           Same look as an open card in Pocket Player / Pocket DM: border in the card's own colour,
+           a soft colour glow all round, a gradient face tinted 20% toward that colour fading into
+           the page, and the exact Filigree corner ticks (16px, 4px in from each corner).
+           Set --accent on the box and everything else derives from it. */
+        .arc-card {
+            --accent: #D2A36B;
+            position: relative;
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            background-color: #171310;
+            background-image: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 20%, #171310), #0e0c09);
+            box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent);
+        }
+        .arc-card::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            pointer-events: none;
+            background-color: var(--accent);
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 0%29 scale%28-1 1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%280 16%29 scale%281 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 16%29 scale%28-1 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 0%29 scale%28-1 1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%280 16%29 scale%281 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 16%29 scale%28-1 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E");
+            -webkit-mask-position: top left, top right, bottom left, bottom right;
+            mask-position: top left, top right, bottom left, bottom right;
+            -webkit-mask-size: 16px 16px;
+            mask-size: 16px 16px;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+        }
+        .arc-card > * { position: relative; }
+
         /* ============ Ecosystem / info cards ============ */
         .ecosystem-section {
             padding: 60px 20px 20px 20px;
             max-width: 1000px;
             margin: 0 auto;
-            box-sizing: border-box;
         }
         .sub-label {
+            font-family: 'Cinzel', Georgia, serif;
+            font-weight: 600;
             color: #8E827B;
             font-size: 13px;
             text-align: center;
@@ -83,13 +116,24 @@
             margin-bottom: 8px;
         }
         .ecosystem-section h2 {
+            font-family: 'Cinzel', Georgia, serif;
             color: #FFFFFF;
             font-size: 28px;
+            line-height: 1.35;
             text-align: center;
             font-weight: 700;
             letter-spacing: 1px;
             margin-top: 0;
-            margin-bottom: 48px;
+            margin-bottom: 14px;
+        }
+        .section-lede {
+            color: #C9BFB8;
+            font-size: 15px;
+            line-height: 1.6;
+            font-weight: 300;
+            text-align: center;
+            max-width: 560px;
+            margin: 0 auto 48px auto;
         }
         .custom-grid {
             display: flex;
@@ -101,10 +145,7 @@
             width: 100%;
         }
         .custom-card {
-            background-color: #1F1A17;
-            border-radius: 12px;
             padding: 45px 35px;
-            box-sizing: border-box;
             flex: 1;
             min-width: 290px;
             max-width: 440px;
@@ -112,20 +153,51 @@
             flex-direction: column;
             align-items: center;
         }
-        .player-border { border: 1px solid #93A5FF; }
-        .dm-border { border: 1px solid #F4B251; }
-        .custom-card img {
-            width: 75px;
-            height: auto;
+        .player-border { --accent: #93A5FF; }
+        .dm-border { --accent: #F4B251; }
+        /* Medallion, ported from arcane-effects.js: dark radial disc, 2px ring in the card's colour,
+           soft colour glow, and an outer hairline halo with a 2px gap. */
+        .medallion {
+            padding: 2px;
+            border-radius: 999px;
+            border: 1px solid #3d3120;
+            background-color: #0e0c09;
             margin-bottom: 24px;
+        }
+        .medallion-disc {
+            width: 112px;
+            height: 112px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            background: radial-gradient(circle at 35% 28%, #2a2d45 0%, #10111b 72%);
+            box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 40%, transparent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .medallion-disc img {
+            width: 62px;
+            height: auto;
             display: block;
         }
         .custom-card h3 {
+            font-family: 'Cinzel', Georgia, serif;
             font-size: 22px;
             font-weight: 700;
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 6px;
             letter-spacing: 1px;
+            text-align: center;
+        }
+        .card-role {
+            font-family: 'Cinzel', Georgia, serif;
+            font-weight: 600;
+            font-size: 13px;
+            color: #8E827B;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0 30px 0;
             text-align: center;
         }
         .player-border h3 { color: #93A5FF; }
@@ -147,9 +219,20 @@
             margin-bottom: 2px;
         }
 
-        /* Mobile only: the two cards become a swipeable side-scroll strip.
-           Everything outside .custom-grid (header, heading, signup box, footer)
-           is untouched by this and keeps its normal static layout. */
+        /* The QR "bridge" line between the two apps */
+        .bridge-note {
+            max-width: 620px;
+            margin: 40px auto 0 auto;
+            padding: 22px 26px;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.6;
+            font-weight: 300;
+            color: #E2DCDA;
+        }
+        .bridge-note strong { color: #D2A36B; font-weight: 700; font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.5px; }
+
+        /* Mobile only: the two cards become a swipeable side-scroll strip. */
         @media (max-width: 700px) {
             .custom-grid {
                 flex-wrap: nowrap;
@@ -158,8 +241,8 @@
                 justify-content: flex-start;
                 gap: 16px;
                 max-width: 100%;
-                margin: 0 -20px;
-                padding: 4px 20px 20px 20px;
+                margin: -16px -20px 0 -20px;
+                padding: 20px 20px 28px 20px;
                 scroll-snap-type: x mandatory;
                 scroll-padding-left: 20px;
                 -webkit-overflow-scrolling: touch;
@@ -172,6 +255,88 @@
                 min-width: 260px;
                 scroll-snap-align: start;
             }
+            .bridge-note { margin-top: 24px; }
+        }
+
+        /* ============ Dice tray (ported from dice-tray.js, Ink & Ember colours) ============ */
+        .tray-section {
+            padding: 36px 16px 0 16px;
+            display: flex;
+            justify-content: center;
+        }
+        .dice-tray {
+            --tray-raised: #171310;
+            --tray-bg: #0e0c09;
+            --tray-line: #3d3120;
+            --tray-amber: #ffbf5c;
+            --tray-dim: #c7bb9e;
+            --tray-faint: #8a7d63;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 8px;
+            background-color: var(--tray-raised);
+            border: 1px solid var(--tray-line);
+            border-radius: 16px;
+            max-width: 100%;
+        }
+        .dice-row { display: flex; gap: 5px; }
+        .die-btn {
+            width: 36px;
+            height: 44px;
+            border-radius: 11px;
+            background-color: var(--tray-bg);
+            border: 1px solid var(--tray-line);
+            color: var(--tray-amber);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
+            padding: 0;
+            cursor: pointer;
+            transition: border-color 0.15s ease, transform 0.15s ease;
+        }
+        .die-btn:hover { border-color: var(--tray-amber); }
+        .die-btn:active { transform: scale(0.94); }
+        .die-btn:focus-visible { outline: 2px solid var(--tray-amber); outline-offset: 2px; }
+        .die-btn .die { width: 24px; height: 24px; opacity: 0.9; }
+        .die-btn .d20 { width: 28px; height: 28px; margin: -2px; opacity: 0.8; }
+        .die-btn span {
+            font-family: 'Lexend', sans-serif;
+            color: var(--tray-dim);
+            font-size: 9px;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+        }
+        .readout {
+            min-width: 76px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-left: 1px solid var(--tray-line);
+            padding-left: 8px;
+        }
+        .roll-big {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            color: var(--tray-amber);
+            font-size: 18px;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        .roll-hist {
+            color: var(--tray-faint);
+            font-size: 9px;
+            white-space: nowrap;
+        }
+        /* Bigger screens: same tray, scaled up so it isn't dwarfed by the page */
+        @media (min-width: 701px) {
+            .dice-tray { zoom: 1.35; }
+        }
+        /* Very narrow phones: history wraps under the dice instead of squeezing them */
+        @media (max-width: 400px) {
+            .dice-tray { flex-wrap: wrap; justify-content: center; }
+            .readout { border-left: none; border-top: 1px solid var(--tray-line); padding: 4px 0 0 0; width: 100%; }
         }
 
         /* ============ Beta / subscribe section ============ */
@@ -182,29 +347,10 @@
             text-align: center;
         }
         .cta-box {
-            background-color: #1F1A17;
-            border: 1px solid rgba(210, 163, 107, 0.45);
-            border-radius: 12px;
             padding: 45px 35px;
             max-width: 460px;
             margin: 0 auto;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             text-align: center;
-            box-sizing: border-box;
-        }
-        .cta-box h3 {
-            color: #D2A36B;
-            font-size: 22px;
-            margin: 0 0 12px 0;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        .cta-lede {
-            font-size: 15px;
-            line-height: 1.6;
-            color: #E2DCDA;
-            margin: 0 0 28px 0;
-            font-weight: 300;
         }
         .form-group {
             display: flex;
@@ -213,35 +359,6 @@
             max-width: 400px;
             margin: 0 auto;
         }
-        input[type="email"] {
-            background-color: #0e0c09;
-            border: 1px solid #332A25;
-            border-radius: 6px;
-            padding: 14px;
-            color: #FFFFFF;
-            font-family: 'Lexend', sans-serif;
-            font-size: 16px; /* 16px avoids iOS auto-zoom on focus */
-            box-sizing: border-box;
-            transition: border-color 0.2s ease;
-        }
-        input[type="email"]:focus {
-            outline: none;
-            border-color: #D2A36B;
-        }
-        .btn {
-            background-color: #D2A36B;
-            color: #1F1A17;
-            border: none;
-            border-radius: 6px;
-            padding: 14px;
-            font-family: 'Lexend', sans-serif;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background-color 0.2s ease;
-        }
-        .btn:hover { background-color: #E0B37F; }
-
         .delivery-note {
             font-size: 12px;
             color: #8E827B;
@@ -258,7 +375,10 @@
             margin-bottom: 0;
             font-weight: 300;
         }
+        .privacy-note a { color: #D2A36B; text-decoration: none; }
+        .privacy-note a:hover { text-decoration: underline; }
 
+        /* ============ Footer ============ */
         .custom-footer {
             text-align: center;
             padding: 40px 20px;
@@ -267,16 +387,24 @@
             font-size: 13px;
             width: 100%;
         }
+        .custom-footer p { margin: 0 0 6px 0; }
         .custom-footer a { color: #D2A36B; text-decoration: none; }
+        .custom-footer a:hover { text-decoration: underline; }
+        .legal-line {
+            max-width: 560px;
+            margin: 18px auto 0 auto !important;
+            font-size: 11px;
+            line-height: 1.6;
+            color: #6E645E;
+        }
 
         /* ============ MailerLite embed, reskinned to match brand ============ */
-        /* Structural classes/ids below (ml-form-*, mlb2-45343433) are kept as-is
-           so MailerLite's own script can still find and submit the form —
-           only the visuals are replaced, MailerLite's generated CSS is dropped. */
+        /* Structural classes/ids (ml-form-*, mlb2-45343433) are kept as-is so
+           MailerLite's own script can still find and submit the form. */
         #mlb2-45343433 .ml-form-embedContent h4,
         #mlb2-45343433 .ml-form-successContent h4 {
             color: #D2A36B;
-            font-family: 'Lexend', sans-serif;
+            font-family: 'Cinzel', Georgia, serif;
             font-size: 22px;
             font-weight: 700;
             letter-spacing: 1px;
@@ -303,7 +431,6 @@
             font-size: 16px !important; /* 16px avoids iOS auto-zoom on focus */
             padding: 14px !important;
             width: 100% !important;
-            box-sizing: border-box !important;
         }
         #mlb2-45343433 .ml-form-fieldRow input:focus {
             outline: none;
@@ -315,9 +442,10 @@
             border: none !important;
             border-radius: 6px !important;
             padding: 14px !important;
-            font-family: 'Lexend', sans-serif !important;
+            font-family: 'Cinzel', Georgia, serif !important;
             font-size: 15px !important;
             font-weight: 700 !important;
+            letter-spacing: 1px;
             cursor: pointer;
             width: 100%;
         }
@@ -352,68 +480,110 @@
     </style>
 </head>
 <body>
-    <!-- HERO HEADER -->
+    <!-- HERO -->
     <header class="hero-section">
         <h1>POCKET D&D</h1>
         <p class="tagline">Lose the math. Keep the magic.</p>
     </header>
 
-    <!-- CORE PLATFORM COMPONENT DESCRIPTION SHOWCASE -->
+    <!-- DICE TRAY: the same seven dice, artwork and roll animation as the tray in both apps -->
+    <section class="tray-section" aria-label="Dice tray">
+        <div class="dice-tray">
+            <div class="dice-row">
+                <button type="button" class="die-btn" data-sides="4" aria-label="Roll a d4"><svg class="die" viewBox="4.41 40.48 17.6 17.6" aria-hidden="true"><path fill="currentColor" d="M20.6230469,55.4365234l-7.2392578-12.5390625l-0.1855469-0.1064453l-0.1845703,0.1064453l-7.2524414,12.5625v0.2128906  l0.1855469,0.1064453h14.5043945h0.0019531c0.1181641,0,0.2128906-0.0957031,0.2128906-0.2128906L20.6230469,55.4365234z   M13.1982422,51.4960938l6.671875,3.8564453H6.5268555L13.1982422,51.4960938z M19.9746094,55.1679688l-6.6689453-3.8564453  v-7.6962891L19.9746094,55.1679688z M13.0917969,43.6152344v7.6962891l-6.668457,3.8554688L13.0917969,43.6152344z"/></svg><span>d4</span></button>
+                <button type="button" class="die-btn" data-sides="6" aria-label="Roll a d6"><svg class="die" viewBox="22.45 40.48 17.6 17.6" aria-hidden="true"><path fill="currentColor" d="M37.8974609,45.5307617l-0.0039063-0.0341797l-0.0019531-0.0117188l-0.0175781-0.0410156v-0.0004883l-0.0273438-0.0356445  l-0.0087891-0.0078125l-0.0283203-0.0214844l-0.0058594-0.0043945l-6.4580078-3.7338867h-0.1899414l-6.4589844,3.7338867  l-0.0048828,0.0043945l-0.0283203,0.0214844l-0.0078125,0.0078125l-0.0273438,0.0356445l-0.0009766,0.0004883l-0.0166016,0.0410156  l-0.0029297,0.0117188l-0.0048828,0.0341797v0.0078125v7.4672852l0.09375,0.1650391l6.4589844,3.7333984l0.0068359,0.0029297  l0.0322266,0.0136719l0.0112305,0.0029297l0.0449219,0.0058594l0.0444336-0.0058594l0.0112305-0.0029297l0.0322266-0.0136719  l0.0068359-0.0029297l6.4580078-3.7333984l0.0957031-0.1650391v-7.4672852L37.8974609,45.5307617z M37.5185547,52.7871094  l-5.9833984-3.4604492l5.9833984-3.4589844V52.7871094z M24.9819336,45.8676758l5.984375,3.4589844l-5.984375,3.4604492V45.8676758z   M31.0610352,49.4916992v6.9194336l-5.984375-3.4599609L31.0610352,49.4916992z M31.4404297,49.4916992l5.984375,3.4594727  l-5.984375,3.4599609V49.4916992z M37.3291016,45.5385742l-5.9833984,3.4594727v-6.9194336L37.3291016,45.5385742z   M31.1557617,42.0786133v6.9194336l-5.984375-3.4594727L31.1557617,42.0786133z"/></svg><span>d6</span></button>
+                <button type="button" class="die-btn" data-sides="8" aria-label="Roll a d8"><svg class="die" viewBox="40.49 40.48 17.6 17.6" aria-hidden="true"><path fill="currentColor" d="M56.2363281,45.3847656l-0.0986328-0.171875l-6.75-3.8916016l-0.0019531-0.0009766l-0.0048828-0.0009766  l-0.0185547-0.0078125l-0.0302734-0.0107422l-0.0117188-0.0019531l-0.0166016-0.0019531l-0.015625-0.0019531l-0.0146484,0.0019531  l-0.0166016,0.0019531l-0.0126953,0.0019531l-0.0292969,0.0107422l-0.0185547,0.0068359l-0.0058594,0.0029297h-0.0009766  l-6.7495117,3.8916016l-0.0996094,0.171875l0.0048828,7.7910156v0.0029297v0.0039063l0.0019531,0.0185547l0.0019531,0.0136719  l0.0019531,0.0107422l0.0029297,0.0068359l0.0048828,0.0146484l0.0058594,0.0136719l0.0058594,0.0126953l0.0009766,0.0019531  l0.0019531,0.0029297l0.0068359,0.0107422l0.0107422,0.0126953L42.3999023,53.3125l0.0058594,0.0068359l0.0068359,0.0058594  l0.0107422,0.0087891l0.0166016,0.0107422l0.0009766,0.0019531l0.0048828,0.0029297l6.7426758,3.8974609l0.0996094,0.0273438  l0.0996094-0.0273438l6.734375-3.8925781l0.1123047-0.1777344l-0.0029297-0.0253906L56.2363281,45.3847656z M49.2880859,56.8466797  l-0.0263672-0.015625l-1.9956055-3.4570313h4.0444336l-1.9951172,3.4570313L49.2880859,56.8466797z M55.8359375,52.4365234  l-1.8769531-3.2509766l1.8808594-3.2578125L55.8359375,52.4365234z M42.7368164,45.5l0.0126953-0.0078125h4.0019531  l-2.0185547,3.4951172l-1.9960938-3.4570313V45.5z M52.6757813,47.7578125l0.9394531,1.6259766l-2.0751953,3.59375h-4.5024414  l-2.0751953-3.59375l2.2470703-3.8916016h4.1586914L52.6757813,47.7578125z M47.3237305,45.2939453l1.9643555-3.4042969  l1.9658203,3.4042969H47.3237305z M46.8081055,52.9775391l-3.9208984,0.0009766l1.9609375-3.3964844L46.8081055,52.9775391z   M51.7685547,52.9775391l1.9609375-3.3955078l1.9609375,3.3955078H51.7685547z M55.8398438,45.5v0.0302734l-1.9951172,3.4570313  l-2.0185547-3.4951172h4.0019531L55.8398438,45.5z M46.8657227,45.2939453h-3.7724609l5.6538086-3.2597656L46.8657227,45.2939453z   M42.737793,45.9277344l1.8808594,3.2578125L42.7416992,52.4375L42.737793,45.9277344z M47.0375977,53.3740234l1.8803711,3.2597656  l-5.6352539-3.2597656H47.0375977z M51.5400391,53.3740234h3.7539063l-5.6347656,3.2578125L51.5400391,53.3740234z   M55.4833984,45.2939453h-3.7714844l-0.1123047-0.1943359l-1.7695313-3.0654297L55.4833984,45.2939453z"/></svg><span>d8</span></button>
+                <button type="button" class="die-btn" data-sides="10" aria-label="Roll a d10"><svg class="die" viewBox="0 0 99.8 100.0" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M49.8 0.0L48.5 0.4L0.0 49.2L0.2 51.1L48.5 99.4L49.4 99.8L50.6 99.6L99.6 50.4L99.4 48.9L50.6 0.2ZM93.9 51.1L51.3 93.7L50.8 93.2L51.1 59.1L74.5 46.4ZM5.9 50.8L25.1 46.4L48.5 59.1L48.3 93.9L5.7 51.3ZM44.9 9.5L44.9 10.3L24.9 43.5L23.8 44.3L6.8 48.1L6.5 47.9ZM54.2 9.5L54.4 9.3L93.0 47.9L92.2 48.1L75.1 44.1ZM49.8 7.2L72.4 44.3L72.2 44.9L50.0 56.8L27.0 44.5Z"/></svg><span>d10</span></button>
+                <button type="button" class="die-btn" data-sides="12" aria-label="Roll a d12"><svg class="die" viewBox="58.53 40.48 17.6 17.6" aria-hidden="true"><path fill="currentColor" d="M74.7080078,51.0595703l-0.703125-4.8149414v-0.0019531l-0.0019531-0.0058594l-0.0097656-0.0332031l-0.0058594-0.0117188  l-0.0166016-0.0273438l-0.0039063-0.0058594l-2.4541016-2.9296875l-0.0830078-0.0546875L66.6875,41.7543945l-0.0390625-0.0058594  H66.640625l-0.0361328,0.0019531l-0.0097656,0.0019531l-0.0410156,0.0175781h-0.0019531l-3.7470703,2.1601563l-0.046875,0.0390625  l-2.7744141,3.3691406l-0.0019531,0.0039063l-0.0224609,0.0371094l-0.0029297,0.0058594l-0.0087891,0.0351563l-0.0019531,0.0117188  l0.0009766,0.0429688l0,0l0.7714844,4.9047852l0.0390625,0.0859375l2.4882813,2.9101563l0.0009766,0.0019531l0.0048828,0.0039063  l0.0214844,0.0195313l0.0117188,0.0078125l0.0185547,0.0097656l0.0146484,0.0078125l0.0117188,0.0039063l4.6435547,1.3828125  l0.0488281,0.0078125l0.0869141-0.0234375l3.7763672-2.1757813l0.0107422-0.0078125l0.0136719-0.0097656l0.015625-0.0175781  l0.0078125-0.0058594l2.7382813-3.3867188L74.7080078,51.0595703z M63.2978516,54.9033203l-2.1855469-2.5546875L63.9375,51.9951172  l0.09375,0.2324219L63.2978516,54.9033203z M70.4472656,46.7524414l-1.1738281,4.9008789l-4.8867188,0.375l-0.0820313-0.0507813  l-0.1425781-0.3496094l1.1484375-4.793457l4.6835938-0.3613281L70.4472656,46.7524414z M65.2763672,46.6625977l-0.8105469-0.9023438  l1.7978516-1.578125l3.4794922,2.1367188L65.2763672,46.6625977z M66.0869141,43.8774414l-1.8525391,1.625l-1.1816406-1.3164063  l3.3447266-1.9277344L66.0869141,43.8774414z M64.1044922,45.6157227l-1.890625,1.6601563h-1.7304688l2.4453125-2.96875  L64.1044922,45.6157227z M64.3359375,45.8735352l0.8105469,0.9023438l-1.0966797,4.5766602l-1.5644531-3.855957  L64.3359375,45.8735352z M64.3486328,52.3798828l0.2460938-0.0195313l3.7167969,2.2832031l-0.3476563,1.8066406  l-4.3740234-1.3027344L64.3486328,52.3798828z M68.3984375,54.4931641l-3.5097656-2.15625l4.4521484-0.3417969l0.8398438,0.9355469  L68.3984375,54.4931641z M69.6015625,51.7685547l1.0917969-4.559082l1.578125,3.8852539l-1.8310547,1.6074219L69.6015625,51.7685547  z M70.6835938,46.4907227l-0.1259766-0.078125L70.53125,46.3461914l0.7744141-2.8242188l2.1923828,2.6152344L70.6835938,46.4907227z   M70.3720703,46.2700195l-0.0410156,0.0039063L66.4375,43.8833008l0.3349609-1.7421875l4.3730469,1.3105469L70.3720703,46.2700195z   M60.3193359,47.621582h1.84375l1.7070313,4.2075195l-2.8330078,0.3554688L60.3193359,47.621582z M68.4863281,54.6455078  l1.8095703-1.5878906l1.2304688,1.3710938l-3.3710938,1.9433594L68.4863281,54.6455078z M71.7910156,54.2060547l-1.234375-1.375  l1.8505859-1.625h1.8085938L71.7910156,54.2060547z M72.4326172,51.0341797l-1.6699219-4.1157227l0.0224609-0.0917969  L73.6875,46.4633789l0.6669922,4.5708008H72.4326172z"/></svg><span>d12</span></button>
+                <button type="button" class="die-btn" data-sides="20" aria-label="Roll a d20"><svg class="d20" viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="0.55" stroke-linecap="round" stroke-linejoin="round"><polygon points="20.22 16.76 20.22 7.26 12.04 2.51 3.85 7.26 3.85 16.76 12.04 21.51 20.22 16.76"/><line x1="7.29" y1="9.26" x2="3.85" y2="7.26"/><line x1="20.22" y1="7.26" x2="16.79" y2="9.26"/><line x1="12.04" y1="17.44" x2="12.04" y2="21.51"/><polygon points="12.04 17.44 20.22 16.76 16.79 9.26 12.04 17.44"/><polygon points="12.04 17.44 7.29 9.26 3.85 16.76 12.04 17.44"/><polygon points="12.04 2.51 7.29 9.26 16.79 9.26 12.04 2.51"/></g></svg><span>d20</span></button>
+                <button type="button" class="die-btn" data-sides="100" aria-label="Roll a d%"><svg class="die" viewBox="0 0 100.0 99.6" aria-hidden="true"><path fill="currentColor" fill-rule="evenodd" d="M54.9 26.4L53.7 27.0L52.7 28.3L51.2 32.6L50.8 35.9L50.8 43.9L51.6 46.9L52.5 48.4L53.9 49.6L56.1 50.0L57.8 49.4L58.8 48.4L60.0 45.7L60.7 42.6L60.7 35.7L60.2 32.4L58.8 28.3L57.8 27.0L56.6 26.4ZM55.7 28.3L56.8 29.7L57.6 33.2L57.8 42.6L56.8 47.1L55.9 48.2L55.3 48.2L54.1 46.3L53.5 42.0L54.1 32.2L54.7 29.7ZM43.0 26.4L41.0 27.9L39.8 30.7L38.9 35.2L38.7 42.4L39.3 45.9L40.4 48.2L42.4 49.8L44.3 50.0L46.7 48.6L48.4 44.9L48.8 42.2L48.8 35.9L48.2 31.8L46.9 28.3L44.7 26.4ZM43.9 28.3L44.9 29.7L45.5 32.2L45.9 42.4L45.1 46.5L44.5 47.7L43.4 48.2L42.6 47.3L42.0 45.7L41.6 38.3L42.4 30.9L43.0 29.1ZM49.2 1.2L1.4 48.8L1.2 49.6L1.4 50.4L48.8 97.7L50.2 98.0L51.0 97.5L97.7 50.8L98.2 49.4L98.0 48.8L50.6 1.4ZM92.2 50.4L92.4 50.8L51.0 92.2L50.8 58.6L73.6 46.3ZM7.2 50.4L25.8 46.3L48.6 58.6L48.4 92.2L7.0 50.8ZM54.1 10.5L54.3 10.2L91.8 47.7L91.4 48.0L74.6 44.1L73.8 43.2ZM45.1 10.2L45.1 11.1L25.2 43.9L7.8 48.0L7.6 47.7ZM49.6 8.2L50.4 9.0L71.7 44.3L71.3 44.9L49.8 56.4L27.7 44.5Z"/></svg><span>d%</span></button>
+            </div>
+            <div class="readout" aria-live="polite">
+                <span class="roll-big" id="rollBig">&mdash;</span>
+                <span class="roll-hist" id="rollHist">tap a die</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE TWO APPS -->
     <main class="ecosystem-section">
-        <p class="sub-label">The Dual-App Ecosystem</p>
-        <h2>YOU KEEP PLAYING</h2>
-        <h2>WE KEEP TRACK</h2>
+        <p class="sub-label">Two apps, one table</p>
+        <h2>YOU KEEP PLAYING<br>WE KEEP TRACK</h2>
+        <p class="section-lede">Built for the table, not instead of it. We handle the maths, the rules and the bookkeeping, so all you have to do is roleplay.</p>
+
         <div class="custom-grid">
 
-            <!-- POCKET PLAYER APP MODULE -->
-            <article class="custom-card player-border">
-                <img src="playerdice.png" onerror="this.src='images/playerdice.png'" alt="Pocket D&D Player App periwinkle blue dice logo">
+            <!-- POCKET PLAYER -->
+            <article class="custom-card arc-card player-border">
+                 <div class="medallion"><div class="medallion-disc"><img src="playerdice.png" onerror="this.src='images/playerdice.png'" alt="Pocket Player periwinkle dice logo"></div></div>
                 <h3>POCKET PLAYER</h3>
+                <p class="card-role">For players</p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <span class="feature-trigger">Rulebook Integration</span>
-                        Your character sheet done properly, not approximated. Completely automates complex multi-class combinations.
+                        <span class="feature-trigger">Loot straight from your DM</span>
+                        One scan of your DM's QR code and new gear, gold or even a companion lands on your sheet, stats and all.
                     </div>
                     <div class="feature-item">
-                        <span class="feature-trigger">Seamless Leveling</span>
-                        Handles complete tracking and bonus modifier recalculations silently under the hood.
+                        <span class="feature-trigger">Stats that update themselves</span>
+                        Put on armour and your AC changes. Get poisoned and the penalty shows up right where you roll. Your sheet always knows what's in play.
                     </div>
                     <div class="feature-item">
-                        <span class="feature-trigger">Active Inventory</span>
-                        Enforces slot validation constraints and balances encumbrance values dynamically as items change.
+                        <span class="feature-trigger">Attacks, fully worked out</span>
+                        Hit and damage calculated for you, magic weapon bonuses included, with advantage and crits handled by the rules.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">A companion at your side</span>
+                        A loyal sidekick or beast companion with its own HP, AC and attacks, ready to roll alongside you.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">Every class, done properly</span>
+                        All twelve classes, multiclassing that actually adds up, and level-ups that recalculate everything for you.
                     </div>
                 </div>
             </article>
 
-            <!-- POCKET DM TOOLKIT MODULE -->
-            <article class="custom-card dm-border">
-                <img src="dmdice.png" onerror="this.src='images/dmdice.png'" alt="Pocket DM Toolkit orange dice logo">
+            <!-- POCKET DM -->
+            <article class="custom-card arc-card dm-border">
+                 <div class="medallion"><div class="medallion-disc"><img src="dmdice.png" onerror="this.src='images/dmdice.png'" alt="Pocket DM amber dice logo"></div></div>
                 <h3>POCKET DM</h3>
+                <p class="card-role">For dungeon masters</p>
                 <div class="feature-list">
                     <div class="feature-item">
-                        <span class="feature-trigger">Encounter Automation</span>
-                        Take the pressure off management loops. Sort complex combat initiatives with lightning-fast speed.
+                        <span class="feature-trigger">Scan a stat block, summon a monster</span>
+                        Point your camera at a stat block and the creature loads in, ready to fight. No typing, no flicking through books mid-battle.
                     </div>
                     <div class="feature-item">
-                        <span class="feature-trigger">The Panic Button</span>
-                        Instantly generate emergency side-quests, modular NPCs, and backup encounter paths on the spot.
+                        <span class="feature-trigger">XP, split for you</span>
+                        After the big fight, every player's XP is worked out individually. Hand out the rewards and get back to the story.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">Your whole campaign, in your pocket</span>
+                        Save every item, monster and creation for your campaign, ready to pull out the moment you need it most.
                     </div>
                     <div class="feature-item">
                         <span class="feature-trigger">Loot Beaming</span>
-                        Create completely custom magic gear properties and beam them straight onto player screens via QR codes.
+                        Forge magic items, gold, even a loyal sidekick, then beam them onto your players' sheets by QR code.
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-trigger">The Panic Button</span>
+                        Players went off-script? Traps, weather, rumours, NPCs, side quests and plenty more, generated in a tap.
                     </div>
                 </div>
             </article>
         </div>
+
+        <p class="bridge-note arc-card">
+            <strong>Better together.</strong> When your DM hands over a shiny new sword, one scan drops it straight onto your sheet. No copying stats out by hand.
+        </p>
     </main>
 
-    <!-- BACKEND SUBSCRIPTION GATEWAY (MailerLite form 197140170416326550) -->
+    <!-- BETA SIGNUP (MailerLite form 197140170416326550) -->
     <section class="beta-section">
-        <div id="mlb2-45343433" class="cta-box ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45343433">
+        <div id="mlb2-45343433" class="cta-box arc-card ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45343433">
             <div class="ml-form-embedBody row-form">
                 <div class="ml-form-embedContent">
                     <h4>Join the closed beta</h4>
-                    <p>Pocket Player is live on TestFlight right now. Get in early, and help shape where it goes next.</p>
+                    <p>Pocket Player and Pocket DM are both on TestFlight. Sign up and we'll send you the invites, so grab one app or both and help shape what comes next.</p>
                 </div>
 
                 <form class="ml-block-form form-group" action="https://assets.mailerlite.com/jsonp/2603686/forms/197140170416326550/subscribe" data-code="" method="post" target="_blank">
@@ -436,26 +606,64 @@
                 </form>
 
                 <p class="delivery-note">
-                    Invites send instantly — check Junk / Spam if it doesn't land in seconds.
+                    Invites send instantly. Check Junk / Spam if nothing lands in a few seconds.
                 </p>
                 <p class="privacy-note">
-                    Your email is used only to send TestFlight invites and beta updates. Never sold or shared.
+                    Your email is only used for TestFlight invites and beta updates. Never sold or shared. <a href="privacy.html">Privacy policy</a>
                 </p>
             </div>
             <div class="ml-form-successBody row-success" style="display: none">
                 <div class="ml-form-successContent">
                     <h4>You're in.</h4>
-                    <p>Check your inbox for your TestFlight invite.</p>
+                    <p>Check your inbox. Your TestFlight invites are on their way.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER LINK SYMMETRY LAYER -->
+    <!-- FOOTER -->
     <footer class="custom-footer">
-        <p style="margin-bottom: 6px;">Pocket D&D App Ecosystem &copy; 2026</p>
-        <p><a href="https://pocketdnd.com">pocketdnd.com</a> &bull; <a href="https://instagram.com" target="_blank">@pocketdnd</a></p>
+        <p>Pocket D&D &copy; 2026</p>
+        <p>
+            <a href="https://www.instagram.com/pocketdnd/" target="_blank" rel="noopener">Instagram @pocketdnd</a>
+            &bull; <a href="privacy.html">Privacy</a>
+        </p>
+        <p class="legal-line">
+            Pocket Player and Pocket DM are unofficial companion apps, not affiliated with, endorsed or sponsored by Wizards of the Coast. Dungeons &amp; Dragons and D&amp;D are trademarks of Wizards of the Coast LLC.
+        </p>
     </footer>
+
+    <!-- Dice tray: tumbles through 5 random values every 55ms, then lands (same timing as the apps) -->
+    <script>
+        (function () {
+            var big = document.getElementById('rollBig');
+            var hist = document.getElementById('rollHist');
+            var history = [];
+            var rolling = false;
+            document.querySelectorAll('.die-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    if (rolling) return;
+                    rolling = true;
+                    var sides = parseInt(btn.getAttribute('data-sides'), 10);
+                    var step = 0;
+                    var timer = setInterval(function () {
+                        step++;
+                        if (step >= 6) {
+                            clearInterval(timer);
+                            var result = Math.floor(Math.random() * sides) + 1;
+                            history.unshift((sides === 100 ? 'd%' : 'd' + sides) + ':' + result);
+                            history = history.slice(0, 5);
+                            big.textContent = result;
+                            hist.textContent = history.join('  ');
+                            rolling = false;
+                        } else {
+                            big.textContent = 1 + Math.floor(Math.random() * sides);
+                        }
+                    }, 55);
+                });
+            });
+        })();
+    </script>
 
     <!-- MailerLite: swaps the form for the success message on a good submit -->
     <script>
