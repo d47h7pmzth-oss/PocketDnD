@@ -37,6 +37,11 @@
         }
         body {
             background-color: #0e0c09;
+            background-image:
+                radial-gradient(ellipse 70% 38% at 50% 0%, rgba(224, 160, 58, 0.13), transparent 70%),
+                radial-gradient(ellipse 60% 40% at 50% 100%, rgba(198, 88, 78, 0.06), transparent 70%);
+            background-repeat: no-repeat;
+            min-height: 100vh;
             color: #E2DCDA;
             margin: 0;
             padding: 0;
@@ -78,9 +83,17 @@
             position: relative;
             border: 1px solid var(--accent);
             border-radius: 16px;
-            background-color: #171310;
-            background-image: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 20%, #171310), #0e0c09);
-            box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent);
+            background-color: transparent;
+            background-image:
+                radial-gradient(160% 125% at 50% 0%,
+                    color-mix(in srgb, var(--accent) 22%, transparent) 0%,
+                    color-mix(in srgb, var(--accent) 10%, transparent) 45%,
+                    color-mix(in srgb, var(--accent) 3%, transparent) 80%,
+                    transparent 100%),
+                linear-gradient(to bottom, rgba(23, 19, 14, 0.72), rgba(13, 11, 8, 0.72));
+            box-shadow:
+                0 0 18px color-mix(in srgb, var(--accent) 38%, transparent),
+                inset 0 1px 0 rgba(255, 255, 255, 0.05);
         }
         .arc-card::before {
             content: "";
@@ -169,7 +182,7 @@
             height: 112px;
             border-radius: 50%;
             border: 2px solid var(--accent);
-            background: radial-gradient(circle at 35% 28%, #2a2d45 0%, #10111b 72%);
+            background: radial-gradient(circle at 35% 28%, color-mix(in srgb, var(--accent) 22%, #1d1812) 0%, #0b0907 72%);
             box-shadow: 0 0 14px color-mix(in srgb, var(--accent) 40%, transparent);
             display: flex;
             align-items: center;
@@ -212,6 +225,16 @@
             font-weight: 300;
         }
         .feature-item:last-child { margin-bottom: 0; }
+        .feature-trigger::before {
+            content: "";
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            margin: 0 9px 2px 1px;
+            background: var(--accent);
+            transform: rotate(45deg);
+            box-shadow: 0 0 6px var(--accent);
+        }
         .feature-trigger {
             color: #FFFFFF;
             font-weight: 700;
@@ -230,7 +253,7 @@
             font-weight: 300;
             color: #E2DCDA;
         }
-        .bridge-note strong { color: #D2A36B; font-weight: 700; font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.5px; }
+        .bridge-note strong { color: #7cbd94; font-weight: 700; font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.5px; }
 
         /* Mobile only: the two cards become a swipeable side-scroll strip. */
         @media (max-width: 700px) {
@@ -265,7 +288,7 @@
             justify-content: center;
         }
         .dice-tray {
-            --tray-raised: #171310;
+            --tray-raised: rgba(23, 19, 16, 0.75);
             --tray-bg: #0e0c09;
             --tray-line: #3d3120;
             --tray-amber: #ffbf5c;
@@ -352,6 +375,12 @@
             margin: 0 auto;
             text-align: center;
         }
+        .beta-glow {
+            --accent: #ffbf5c;
+            box-shadow:
+                0 0 28px color-mix(in srgb, var(--accent) 45%, transparent),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+        }
         .form-group {
             display: flex;
             flex-direction: column;
@@ -403,7 +432,7 @@
            MailerLite's own script can still find and submit the form. */
         #mlb2-45343433 .ml-form-embedContent h4,
         #mlb2-45343433 .ml-form-successContent h4 {
-            color: #D2A36B;
+            color: #ffbf5c;
             font-family: 'Cinzel', Georgia, serif;
             font-size: 22px;
             font-weight: 700;
@@ -434,11 +463,12 @@
         }
         #mlb2-45343433 .ml-form-fieldRow input:focus {
             outline: none;
-            border-color: #D2A36B !important;
+            border-color: #ffbf5c !important;
         }
         #mlb2-45343433 .ml-form-embedSubmit button {
-            background-color: #D2A36B !important;
-            color: #1F1A17 !important;
+            background-image: linear-gradient(to bottom, #ffbf5c, #e0a03a) !important;
+            background-color: #e0a03a !important;
+            color: #1a130a !important;
             border: none !important;
             border-radius: 6px !important;
             padding: 14px !important;
@@ -449,7 +479,7 @@
             cursor: pointer;
             width: 100%;
         }
-        #mlb2-45343433 .ml-form-embedSubmit button:hover { background-color: #E0B37F !important; }
+        #mlb2-45343433 .ml-form-embedSubmit button:hover { filter: brightness(1.08); }
         #mlb2-45343433 .ml-form-embedSubmit button.loading { display: none; }
         #mlb2-45343433 .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
         #mlb2-45343433 .ml-form-embedSubmitLoad:after {
@@ -467,6 +497,15 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Drifting embers: tiny specks in the theme's colours, drawn behind all content */
+        #embers {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
         .sr-only {
             position: absolute;
             width: 1px;
@@ -480,6 +519,7 @@
     </style>
 </head>
 <body>
+    <canvas id="embers" aria-hidden="true"></canvas>
     <!-- HERO -->
     <header class="hero-section">
         <h1>POCKET D&D</h1>
@@ -572,14 +612,14 @@
             </article>
         </div>
 
-        <p class="bridge-note arc-card">
+        <p class="bridge-note arc-card" style="--accent: #7cbd94;">
             <strong>Better together.</strong> When your DM hands over a shiny new sword, one scan drops it straight onto your sheet. No copying stats out by hand.
         </p>
     </main>
 
     <!-- BETA SIGNUP (MailerLite form 197140170416326550) -->
     <section class="beta-section">
-        <div id="mlb2-45343433" class="cta-box arc-card ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45343433">
+        <div id="mlb2-45343433" class="cta-box arc-card beta-glow ml-form-embedContainer ml-subscribe-form ml-subscribe-form-45343433">
             <div class="ml-form-embedBody row-form">
                 <div class="ml-form-embedContent">
                     <h4>Join the closed beta</h4>
@@ -632,6 +672,76 @@
             Pocket Player and Pocket DM are unofficial companion apps, not affiliated with, endorsed or sponsored by Wizards of the Coast. Dungeons &amp; Dragons and D&amp;D are trademarks of Wizards of the Coast LLC.
         </p>
     </footer>
+
+    <!-- Embers: tiny specks of the Ink & Ember colours drifting gently down and fading out.
+         Switches off for anyone who has "reduce motion" turned on. -->
+    <script>
+        (function () {
+            var canvas = document.getElementById('embers');
+            if (!canvas || !canvas.getContext) return;
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+            var ctx = canvas.getContext('2d');
+            var COLOURS = ['255,191,92', '224,160,58', '255,191,92', '147,165,255', '124,189,148', '198,88,78'];
+            var dpr = Math.min(window.devicePixelRatio || 1, 2);
+            var w, h, specks = [];
+            var lastScroll = window.scrollY || 0;
+            var scrollShift = 0;
+            window.addEventListener('scroll', function () {
+                var y = window.scrollY || 0;
+                scrollShift += y - lastScroll;
+                lastScroll = y;
+            }, { passive: true });
+
+            function resize() {
+                w = window.innerWidth; h = window.innerHeight;
+                canvas.width = w * dpr; canvas.height = h * dpr;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                var target = Math.round(Math.min(140, (w * h) / 11000));
+                while (specks.length < target) specks.push(make(true));
+                specks.length = target;
+            }
+            function make(anywhere) {
+                return {
+                    x: Math.random() * w,
+                    y: anywhere ? Math.random() * h : -10,
+                    r: 0.5 + Math.random() * 1.1,
+                    vy: 0.12 + Math.random() * 0.35,
+                    sway: Math.random() * Math.PI * 2,
+                    swaySpeed: 0.004 + Math.random() * 0.01,
+                    life: 0,
+                    max: 0.35 + Math.random() * 0.5,
+                    c: COLOURS[Math.floor(Math.random() * COLOURS.length)]
+                };
+            }
+            function tick() {
+                ctx.clearRect(0, 0, w, h);
+                // move the specks with the page when it scrolls (0.7 = a touch of depth)
+                var shift = scrollShift * 0.7;
+                scrollShift = 0;
+                for (var i = 0; i < specks.length; i++) {
+                    var p = specks[i];
+                    p.y += p.vy - shift;
+                    if (p.y < -10) { specks[i] = make(true); continue; }
+                    p.sway += p.swaySpeed;
+                    p.x += Math.sin(p.sway) * 0.25;
+                    p.life = Math.min(1, p.life + 0.01);
+                    // fade in at the start, fade out as it drifts down the screen
+                    var a = p.max * p.life * Math.max(0, 1 - p.y / h);
+                    if (p.y > h || a <= 0.002 && p.life >= 1) { specks[i] = make(false); continue; }
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(' + p.c + ',' + a.toFixed(3) + ')';
+                    ctx.shadowColor = 'rgba(' + p.c + ',' + (a * 0.9).toFixed(3) + ')';
+                    ctx.shadowBlur = 4;
+                    ctx.fill();
+                }
+                requestAnimationFrame(tick);
+            }
+            window.addEventListener('resize', resize);
+            resize();
+            requestAnimationFrame(tick);
+        })();
+    </script>
 
     <!-- Dice tray: tumbles through 5 random values every 55ms, then lands (same timing as the apps) -->
     <script>
