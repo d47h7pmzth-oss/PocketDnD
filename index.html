@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pocket D&D | Streamlined Character Sheets & DM Toolkit</title>
+    <title>Pocket Player &amp; Pocket DM | 5e Character Sheet &amp; DM Toolkit</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -21,8 +21,8 @@
 
     <!-- Social sharing previews -->
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Pocket D&D">
-    <meta property="og:title" content="Pocket D&D | Streamlined Character Sheets & DM Toolkit">
+    <meta property="og:site_name" content="Pocket Player &amp; Pocket DM">
+    <meta property="og:title" content="Pocket Player &amp; Pocket DM | 5e Character Sheet &amp; DM Toolkit">
     <meta property="og:description" content="Lose the math. Keep the magic. Two companion apps for players and DMs, now in closed beta.">
     <meta property="og:url" content="https://pocketdnd.com/">
     <meta property="og:image" content="https://pocketdnd.com/playerdice.png">
@@ -63,6 +63,42 @@
             font-weight: 700;
             letter-spacing: 2px;
             margin: 0 0 12px 0;
+        }
+        .brand-lockup {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: baseline;
+            column-gap: 16px;
+            row-gap: 2px;
+            line-height: 1.15;
+        }
+        .lock-player {
+            color: #93A5FF;
+            text-shadow: 0 0 22px rgba(147, 165, 255, 0.35);
+        }
+        .lock-dm {
+            color: #F4B251;
+            text-shadow: 0 0 22px rgba(244, 178, 81, 0.35);
+        }
+        .lock-amp {
+            color: #ffbf5c;
+            font-size: 0.7em;
+            opacity: 0.85;
+        }
+        .descriptor {
+            font-family: 'Cinzel', Georgia, serif;
+            font-weight: 600;
+            color: #8E827B;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin: 0 0 18px 0;
+        }
+        @media (max-width: 560px) {
+            .hero-section h1 { font-size: 32px; }
+            .brand-lockup { flex-direction: column; align-items: center; }
+            .lock-amp { margin: -2px 0; }
         }
         .hero-section p.tagline {
             color: #D2A36B;
@@ -522,7 +558,8 @@
     <canvas id="embers" aria-hidden="true"></canvas>
     <!-- HERO -->
     <header class="hero-section">
-        <h1>POCKET D&D</h1>
+        <h1 class="brand-lockup"><span class="lock-player">POCKET PLAYER</span><span class="lock-amp">&amp;</span><span class="lock-dm">POCKET DM</span></h1>
+        <p class="descriptor">Companion apps for fifth edition tabletop RPGs</p>
         <p class="tagline">Lose the math. Keep the magic.</p>
     </header>
 
@@ -663,7 +700,7 @@
 
     <!-- FOOTER -->
     <footer class="custom-footer">
-        <p>Pocket D&D &copy; 2026</p>
+        <p>Pocket Player &amp; Pocket DM &copy; 2026</p>
         <p>
             <a href="https://www.instagram.com/pocketdnd/" target="_blank" rel="noopener">Instagram @pocketdnd</a>
             &bull; <a href="privacy.html">Privacy</a>
