@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Pocket D&D</title>
+    <meta name="description" content="How Pocket Player, Pocket DM and the pocketdnd.com beta signup handle your information.">
+    <link rel="canonical" href="https://pocketdnd.com/privacy.html">
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon32x32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="appletouchicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            background-color: #0e0c09;
+            color: #E2DCDA;
+            margin: 0;
+            font-family: 'Lexend', -apple-system, BlinkMacSystemFont, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .wrap {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 20px 40px 20px;
+        }
+        .back {
+            display: inline-block;
+            color: #D2A36B;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        .back:hover { text-decoration: underline; }
+        h1 {
+            font-family: 'Cinzel', Georgia, serif;
+            color: #FFFFFF;
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin: 0 0 6px 0;
+        }
+        .updated {
+            color: #8E827B;
+            font-size: 13px;
+            margin: 0 0 36px 0;
+        }
+        h2 {
+            font-family: 'Cinzel', Georgia, serif;
+            color: #D2A36B;
+            font-size: 19px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin: 40px 0 10px 0;
+        }
+        h3 {
+            font-family: 'Cinzel', Georgia, serif;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 700;
+            margin: 24px 0 6px 0;
+        }
+        p, li { font-size: 15px; }
+        ul { padding-left: 20px; }
+        li { margin-bottom: 6px; }
+        a { color: #D2A36B; }
+        strong { color: #FFFFFF; font-weight: 700; }
+        /* ============ Arcane card treatment (ported from the apps' arcane-effects.js) ============
+           Same look as an open card in Pocket Player / Pocket DM: border in the card's own colour,
+           a soft colour glow all round, a gradient face tinted 20% toward that colour fading into
+           the page, and the exact Filigree corner ticks (16px, 4px in from each corner).
+           Set --accent on the box and everything else derives from it. */
+        .arc-card {
+            --accent: #D2A36B;
+            position: relative;
+            border: 1px solid var(--accent);
+            border-radius: 16px;
+            background-color: #171310;
+            background-image: linear-gradient(to bottom, color-mix(in srgb, var(--accent) 20%, #171310), #0e0c09);
+            box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 40%, transparent);
+        }
+        .arc-card::before {
+            content: "";
+            position: absolute;
+            inset: 4px;
+            pointer-events: none;
+            background-color: var(--accent);
+            -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 0%29 scale%28-1 1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%280 16%29 scale%281 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 16%29 scale%28-1 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E");
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 0%29 scale%28-1 1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%280 16%29 scale%281 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cg transform='translate%2816 16%29 scale%28-1 -1%29'%3E%3Cpath d='M1 14V5.5A4.5 4.5 0 0 1 5.5 1H14' fill='none' stroke='black' stroke-width='1.4' stroke-linecap='round'/%3E%3Ccircle cx='5.6' cy='5.6' r='1.5' fill='black'/%3E%3C/g%3E%3C/svg%3E");
+            -webkit-mask-position: top left, top right, bottom left, bottom right;
+            mask-position: top left, top right, bottom left, bottom right;
+            -webkit-mask-size: 16px 16px;
+            mask-size: 16px 16px;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+        }
+        .arc-card > * { position: relative; }
+        .summary {
+            padding: 22px 26px;
+        }
+        .summary p { margin: 0; }
+        /* DELETE THIS BLOCK (and the .draft-banner div below) once the Pocket DM section is confirmed */
+        .draft-banner {
+            background: #3a2a10;
+            border: 1px solid #F4B251;
+            color: #F4B251;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 13px;
+            margin-bottom: 28px;
+        }
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #1F1A17;
+            color: #8E827B;
+            font-size: 13px;
+        }
+        footer a { text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a class="back" href="index.html">&larr; Back to Pocket D&D</a>
+
+        <h1>Privacy Policy</h1>
+        <p class="updated">Last updated: 1 November 2026</p>
+
+        <div class="draft-banner">
+            Draft: the Pocket DM section still needs confirming before this page goes live.
+        </div>
+
+        <div class="summary arc-card">
+            <p><strong>The short version:</strong> your characters live on your own device unless you choose to make an account. We don't run ads, we don't use tracking or analytics tools, and we never sell or share your information.</p>
+        </div>
+
+        <h2>What this covers</h2>
+        <p>This policy explains what information is collected by the Pocket Player app, the Pocket DM app, and the beta signup form on pocketdnd.com, why it's collected, and how it's handled. The Pocket Player wording below matches the version inside the app (Settings &rarr; Legal &rarr; Privacy Policy).</p>
+
+        <h2>Pocket Player</h2>
+
+        <h3>Character data stays on your device by default</h3>
+        <p>Everything you create in Pocket Player (characters, inventory, spells and notes) is stored locally on your device. If you never create an account, none of it is sent anywhere, and we have no access to it at all.</p>
+
+        <h3>Optional account and cross-device sync</h3>
+        <p>If you choose to create an account, Pocket Player uses <strong>Firebase</strong>, a backend service provided by Google, to store your character data so it can sync across your own devices. Creating an account requires an email address and a password. Your character data is then also stored on Firebase's servers, tied to your account. We use it only to provide sync: no analytics on your characters, and no sharing with anyone else.</p>
+
+        <h3>QR codes</h3>
+        <p>Sharing an item or your Player Card by QR code happens directly between the two devices at your table. Nothing is uploaded to us to make that work.</p>
+
+        <h2>Pocket DM</h2>
+        <!-- TO CONFIRM BEFORE PUBLISHING:
+             1. Does Pocket DM have accounts / cloud sync? If so, which provider (Firebase?) and what's stored?
+             2. Do the generators (loot, NPCs, side quests, etc.) send anything to an outside AI or API service? If so, which one, and what's sent?
+             3. Any analytics, crash reporting or ads SDKs?
+             Rewrite this section to match the answers, then delete the draft banner. -->
+        <p>Your campaign content (notes, encounters, generated items and anything you build) is stored on your device. Scanning a player's Player Card or sending loot by QR code happens directly between devices at your table.</p>
+
+        <h2>What we don't collect</h2>
+        <p>No advertising identifiers, no third-party analytics or tracking tools, and no access to your contacts, photos, location or microphone. The camera is used only to scan QR codes, and only while you're scanning. Neither app shows ads.</p>
+
+        <h2>Payments</h2>
+        <p>Any paid unlock in either app is processed entirely by Apple's or Google's own payment system. We never see or store your card details.</p>
+
+        <h2>The beta signup form</h2>
+        <p>If you join the beta on pocketdnd.com, your email address is stored with <strong>MailerLite</strong>, our email provider, and used only to send TestFlight invites and beta updates. Every email includes an unsubscribe link, and unsubscribing removes you from future beta emails.</p>
+
+        <h2>Deleting your data</h2>
+        <p>If you have a Pocket Player account, you can delete it and all its cloud data from inside the app at any time (Settings). If you only ever used local storage, uninstalling the app removes everything. For anything else, just get in touch using the details below.</p>
+
+        <h2>Children</h2>
+        <p>Pocket Player and Pocket DM aren't directed at children under 13, and we don't knowingly collect personal information from children under 13. If you believe a child has created an account, contact us and we'll remove it.</p>
+
+        <h2>Changes to this policy</h2>
+        <p>If this policy changes in a meaningful way, we'll update it here and inside the apps. Continuing to use the apps after a change means you accept the updated policy.</p>
+
+        <h2>Contact</h2>
+        <!-- Swap in the real inbox before publishing, and make sure it actually receives mail. -->
+        <p>For privacy questions, data access requests or deletion requests, email <a href="mailto:hello@pocketdnd.com">hello@pocketdnd.com</a>.</p>
+    </div>
+
+    <footer>
+        <p><a href="index.html">pocketdnd.com</a> &bull; <a href="https://www.instagram.com/pocketdnd/" target="_blank" rel="noopener">@pocketdnd</a></p>
+    </footer>
+</body>
+</html>
